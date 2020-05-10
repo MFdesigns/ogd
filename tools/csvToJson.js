@@ -6,7 +6,6 @@ const fs = require('fs');
 
 function convertCSVToJSON(csv) {
   const data = {
-    years: [],
     countries: [],
     genders: ['weiblich', 'männlich'],
     levels: ['Sekundarstufe I', 'Sekundarstufe II'],
@@ -17,12 +16,11 @@ function convertCSVToJSON(csv) {
       'Informatikmittelschulen',
       'Passerelle',
     ],
-    students: [],
+    years: {},
   };
 
   // Split csv into rows, ignore column names and last row which is empty
   const rows = csv.split('\r\n').slice(1, -2);
-
 
   // Loop through every row
   for (let i = 0; i < rows.length; i += 1) {
@@ -35,18 +33,17 @@ function convertCSVToJSON(csv) {
     const country = columns[5];
     const size = parseInt(columns[6], 10);
 
-    // Check if year already exists
-    // If it does not exist add it to the array
-    // Do the same for countries
-    if (data.years.indexOf(year) <= -1) {
-      data.years.push(year);
+    // Check if year already exists, if not add new year to array
+    if (!data.years.hasOwnProperty(year)) {
+      data.years[year] = [];
     }
+
+    // Check if country already exists, if not add new country to array
     if (data.countries.indexOf(country) <= -1) {
       data.countries.push(country);
     }
 
-    data.students.push({
-      year: data.years.indexOf(year),
+    data.years[year].push({
       level: data.levels.indexOf(level),
       type: data.types.indexOf(type),
       gender: data.genders.indexOf(gender),
