@@ -1,5 +1,5 @@
 /*
-  Copyright (c) 2020 Michel Fäh
+  Copyright (c) 2020 Michel Fäh, Dario Romandini
 */
 
 const fs = require('fs');

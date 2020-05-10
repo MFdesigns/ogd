@@ -1,7 +1,7 @@
 <?php
 
 /*
-  Copyright (c) 2020 Dario Romandini
+  Copyright (c) 2020 Michel Fäh, Dario Romandini
 */
 
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
