@@ -1,0 +1,18 @@
+/*
+ Copyright (c) 2020 Michel Fäh, Dario Romandini
+*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --tg-green: #16A74E;
+  --tg-yellow: #FFD730;
+}
+
+html {
+  font-family: Arial, Helvetica, sans-serif;
+}

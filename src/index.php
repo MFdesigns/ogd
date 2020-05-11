@@ -11,6 +11,7 @@
   <!-- TODO: Add description meta data -->
   <meta name="description" content="">
   <title>OGD Lernende Mittelschulen TG</title>
+  <link rel="stylesheet" href="./css/general_styles.css">
   <script src="./js/yearlyReports.js" type="module" defer></script>
 </head>
 <body>
