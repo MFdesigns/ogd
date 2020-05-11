@@ -85,6 +85,51 @@ function getLevelCount(year) {
   };
 }
 
+function getTypeCount(year) {
+  const students = app.data.years[year];
+  let typeFMSCount = 0;
+  let typeGYMCount = 0;
+  let typeHMSCount = 0;
+  let typeIMSCount = 0;
+  let typePASCount = 0;
+
+  students.forEach((student) => {
+    const type = app.data.types[student.type];
+    switch (type) {
+      case 'Fachmittelschulen':
+        typeFMSCount += 1;
+        break;
+
+      case 'Gymnasium':
+        typeGYMCount += 1;
+        break;
+
+      case 'Handelsmittelschulen':
+        typeHMSCount += 1;
+        break;
+
+      case 'Informatikmittelschulen':
+        typeIMSCount += 1;
+        break;
+
+      case 'Passerelle':
+        typePASCount += 1;
+        break;
+
+      default:
+        break;
+    }
+  });
+
+  return {
+    FMS: typeFMSCount,
+    GYM: typeGYMCount,
+    HMS: typeHMSCount,
+    IMS: typeIMSCount,
+    PAS: typePASCount,
+  };
+}
+
 /**
  * Creates gender chart and adds it to page
  * @param {string} year Selected year
@@ -136,6 +181,35 @@ function createLevelChart(year) {
   return chart;
 }
 
+function createTypeChart(year) {
+  const canvas = document.getElementsByClassName('type-chart')[0];
+  const typeCount = getTypeCount(year);
+  const chart = new Chart(canvas.getContext('2d'), {
+    type: 'pie',
+    data: {
+      datasets: [{
+        data: [typeCount.FMS, typeCount.GYM, typeCount.HMS, typeCount.IMS, typeCount.PAS],
+        backgroundColor: [
+          'green',
+          'lightgreen',
+          'darkgreen',
+          'blue',
+          'lightblue',
+        ],
+      }],
+      labels: [
+        'Fachmittelschule',
+        'Gymnasium',
+        'Handelsmittelschule',
+        'Informatikmittelschule',
+        'Pasarelle',
+      ],
+    },
+  });
+
+  return chart;
+}
+
 /**
  * Updates gender chart with given year
  * @param {string} year Selected year
@@ -167,6 +241,22 @@ function updateLevelChart(year) {
   app.charts.level.update();
 }
 
+function updateTypeChart(year) {
+  const typeCount = getTypeCount(year);
+  app.charts.type.data.datasets.length = 0;
+  app.charts.level.data.datasets.push({
+    data: [typeCount.FMS, typeCount.GYM, typeCount.HMS, typeCount.IMS, typeCount.PAS],
+    backgroundColor: [
+      'green',
+      'lightgreen',
+      'darkgreen',
+      'blue',
+      'lightblue',
+    ],
+  });
+  app.charts.type.update();
+}
+
 // Get API data and create all charts with default year on page load
 document.addEventListener('DOMContentLoaded', async () => {
   // Get JSON from API and add it to global app data
@@ -178,6 +268,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   // Create charts and add reference to global charts array
   app.charts.gender = createGenderChart(year);
   app.charts.level = createLevelChart(year);
+  app.charts.type = createTypeChart(year);
 });
 
 
@@ -185,4 +276,5 @@ document.addEventListener('DOMContentLoaded', async () => {
 yearSelect.addEventListener('change', (event) => {
   updateGenderChart(event.target.value);
   updateLevelChart(event.target.value);
+  updateTypeChart(event.target.value);
 });
