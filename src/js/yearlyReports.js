@@ -1,7 +1,9 @@
 /*
-  Copyright (c) 2020 Michel Fäh, Dario Romandini
+Copyright (c) 2020 Michel Fäh, Dario Romandini
 */
 
+/* eslint-disable import/extensions */
+/* eslint-disable import/no-useless-path-segments */
 import Chart from '../js/Chart.esm.js';
 
 // Global app state
@@ -116,6 +118,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 
 // Update all charts on year selection change
-yearSelect.addEventListener('change', async (event) => {
+yearSelect.addEventListener('change', (event) => {
   updateGenderChart(event.target.value);
 });
