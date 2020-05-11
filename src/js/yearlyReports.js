@@ -41,10 +41,12 @@ function getGenderCount(year) {
     switch (gender) {
       case 'männlich':
         maleCount += 1;
+        maleCount += student.size;
         break;
 
       case 'weiblich':
         femaleCount += 1;
+        femaleCount += student.size;
         break;
 
       default:
@@ -68,10 +70,12 @@ function getLevelCount(year) {
     switch (level) {
       case 'Sekundarstufe I':
         levelOneCount += 1;
+        levelOneCount += student.size;
         break;
 
       case 'Sekundarstufe II':
         levelTwoCount += 1;
+        levelTwoCount += student.size;
         break;
 
       default:
@@ -98,22 +102,27 @@ function getTypeCount(year) {
     switch (type) {
       case 'Fachmittelschulen':
         typeFMSCount += 1;
+        typeFMSCount += student.size;
         break;
 
       case 'Gymnasium':
         typeGYMCount += 1;
+        typeGYMCount += student.size;
         break;
 
       case 'Handelsmittelschulen':
         typeHMSCount += 1;
+        typeHMSCount += student.size;
         break;
 
       case 'Informatikmittelschulen':
         typeIMSCount += 1;
+        typeIMSCount += student.size;
         break;
 
       case 'Passerelle':
         typePASCount += 1;
+        typePASCount += student.size;
         break;
 
       default:
