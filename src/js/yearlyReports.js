@@ -244,7 +244,7 @@ function updateLevelChart(year) {
 function updateTypeChart(year) {
   const typeCount = getTypeCount(year);
   app.charts.type.data.datasets.length = 0;
-  app.charts.level.data.datasets.push({
+  app.charts.type.data.datasets.push({
     data: [typeCount.FMS, typeCount.GYM, typeCount.HMS, typeCount.IMS, typeCount.PAS],
     backgroundColor: [
       'green',
