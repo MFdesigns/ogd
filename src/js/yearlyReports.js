@@ -56,6 +56,33 @@ function getGenderCount(year) {
   };
 }
 
+function getLevelCount(year) {
+  const students = app.data.years[year];
+  let levelOneCount = 0;
+  let levelTwoCount = 0;
+
+  students.forEach((student) => {
+    const level = app.data.levels[student.level];
+    switch (level) {
+      case 'Sekundarstufe I':
+        levelOneCount += 1;
+        break;
+
+      case 'Sekundarstufe II':
+        levelTwoCount += 1;
+        break;
+
+      default:
+        break;
+    }
+  });
+
+  return {
+    levelOne: levelOneCount,
+    levelTwo: levelTwoCount,
+  };
+}
+
 /**
  * Creates gender chart and adds it to page
  * @param {string} year Selected year
@@ -84,6 +111,29 @@ function createGenderChart(year) {
   return chart;
 }
 
+function createLevelChart(year) {
+  const canvas = document.getElementsByClassName('level-chart')[0];
+  const levelCount = getLevelCount(year);
+  const chart = new Chart(canvas.getContext('2d'), {
+    type: 'pie',
+    data: {
+      datasets: [{
+        data: [levelCount.levelOne, levelCount.levelTwo],
+        backgroundColor: [
+          'green',
+          'lightgreen',
+        ],
+      }],
+      labels: [
+        'Sekundarstufe I',
+        'Sekundarstufe II',
+      ],
+    },
+  });
+
+  return chart;
+}
+
 /**
  * Updates gender chart with given year
  * @param {string} year Selected year
@@ -102,6 +152,19 @@ function updateGenderChart(year) {
   app.charts.gender.update();
 }
 
+function updateLevelChart(year) {
+  const levelCount = getLevelCount(year);
+  app.charts.level.data.datasets.length = 0;
+  app.charts.level.data.datasets.push({
+    data: [levelCount.levelOne, levelCount.levelTwo],
+    backgroundColor: [
+      'green',
+      'lightgreen',
+    ],
+  });
+  app.charts.level.update();
+}
+
 // Get API data and create all charts with default year on page load
 document.addEventListener('DOMContentLoaded', async () => {
   // Get JSON from API and add it to global app data
@@ -112,10 +175,12 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   // Create charts and add reference to global charts array
   app.charts.gender = createGenderChart(year);
+  app.charts.level = createLevelChart(year);
 });
 
 
 // Update all charts on year selection change
 yearSelect.addEventListener('change', async (event) => {
   updateGenderChart(event.target.value);
+  updateLevelChart(event.target.value);
 });

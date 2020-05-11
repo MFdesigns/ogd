@@ -33,6 +33,7 @@
   </select>
 
   <canvas class="gender-chart"></canvas>
+  <canvas class="level-chart"></canvas>
 
 </body>
 </html>
