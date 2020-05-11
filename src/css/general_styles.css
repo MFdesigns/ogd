@@ -11,8 +11,123 @@
 :root {
   --tg-green: #16A74E;
   --tg-yellow: #FFD730;
+  --tg-grey: #F5F5F5;
+  --page-width: 1000px;
 }
 
 html {
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/*
+  Header
+*/
+
+header {
+  width: 100%;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  top: 0;
+  left: 0;
+}
+
+.title {
+  position: relative;
+  border-bottom: 2px solid black;
+}
+.title::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background-color: var(--tg-green);
+}
+
+.header {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  width: var(--page-width);
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+}
+
+.header__icon {
+  height: 100%;
+  width: 70px;
+}
+
+.header__title {
+  margin: 0 0 0 20px;
+  align-self: center;
+}
+
+/*
+  Navbar
+*/
+
+nav {
+  background-color: var(--tg-grey);
+}
+
+.nav {
+  width: var(--page-width);
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: row;
+  padding: 0 0 0 85px;
+}
+
+.nav__item {
+  position: relative;
+  color: black;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+  background-color: transparent;
+  transition: all 0.3s;
+}
+.nav__item:hover {
+  cursor: pointer;
+  color: white;
+}
+.nav__item:hover::before {
+  background-color: var(--tg-green);
+  height: 100%;
+  left: 0px;
+}
+.nav__item::before {
+  background-color: transparent;
+  position: absolute;
+  content: "";
+  top: 0;
+  left: -20px;
+  height: 0;
+  width: 100%;
+  transform: skewX(45deg);
+  z-index: 0;
+  transition: all 0.2s;
+}
+
+/*
+  Set z-index to p element inside anchor to
+  put on top of ::before pseudo element
+  TLDR: CSS is stupid
+ */
+.nav__item__text {
+  position: relative;
+  z-index: 1;
+}
+
+/*
+  Main
+*/
+
+main {
+  margin: 150px 0 0 0;
 }
