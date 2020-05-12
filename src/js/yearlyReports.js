@@ -60,6 +60,10 @@ function getGenderCount(year) {
   };
 }
 
+/**
+ * Gets the amount of the level from studentents in given year
+ * @param {string} year Selected year
+ */
 function getLevelCount(year) {
   const students = app.data.years[year];
   let levelOneCount = 0;
@@ -89,6 +93,10 @@ function getLevelCount(year) {
   };
 }
 
+/**
+ * Gets the amount of the students school type in given year
+ * @param {string} year Selected year
+ */
 function getTypeCount(year) {
   const students = app.data.years[year];
   let typeFMSCount = 0;
@@ -139,6 +147,10 @@ function getTypeCount(year) {
   };
 }
 
+/**
+ * Gets the amount of the students countries in given year
+ * @param {string} year Selected year
+ */
 function getCountryCount(year) {
   const students = app.data.years[year];
   const countryCounts = [];
@@ -185,6 +197,11 @@ function createGenderChart(year) {
   return chart;
 }
 
+/**
+ * Creates level chart and adds it to page
+ * @param {string} year Selected year
+ * @returns {Chart}
+ */
 function createLevelChart(year) {
   const canvas = document.getElementsByClassName('level-chart')[0];
   const levelCount = getLevelCount(year);
@@ -208,6 +225,11 @@ function createLevelChart(year) {
   return chart;
 }
 
+/**
+ * Creates type chart and adds it to page
+ * @param {string} year Selected year
+ * @returns {Chart}
+ */
 function createTypeChart(year) {
   const canvas = document.getElementsByClassName('type-chart')[0];
   const typeCount = getTypeCount(year);
@@ -237,6 +259,11 @@ function createTypeChart(year) {
   return chart;
 }
 
+/**
+ * Creates country chart and adds it to page
+ * @param {string} year Selected year
+ * @returns {Chart}
+ */
 function createCountryChart(year) {
   const canvas = document.getElementsByClassName('country-chart')[0];
   const countryCount = getCountryCount(year);
@@ -274,6 +301,10 @@ function updateGenderChart(year) {
   app.charts.gender.update();
 }
 
+/**
+ * Updates level chart with given year
+ * @param {string} year Selected year
+ */
 function updateLevelChart(year) {
   const levelCount = getLevelCount(year);
   app.charts.level.data.datasets.length = 0;
@@ -287,6 +318,10 @@ function updateLevelChart(year) {
   app.charts.level.update();
 }
 
+/**
+ * Updates type chart with given year
+ * @param {string} year Selected year
+ */
 function updateTypeChart(year) {
   const typeCount = getTypeCount(year);
   app.charts.type.data.datasets.length = 0;
@@ -303,6 +338,10 @@ function updateTypeChart(year) {
   app.charts.type.update();
 }
 
+/**
+ * Updates country chart with given year
+ * @param {string} year Selected year
+ */
 function updateCountryChart(year) {
   const countryCount = getCountryCount(year);
   app.charts.country.data.datasets.length = 0;
