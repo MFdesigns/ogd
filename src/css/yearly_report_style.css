@@ -1,0 +1,84 @@
+main {
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: auto auto auto auto auto;
+  grid-template-areas:
+  "banner"
+  "gender"
+  "type"
+  "level"
+  "country"
+  ;
+  column-gap: 20px;
+  row-gap: 20px;
+}
+
+.banner {
+  grid-area: banner;
+  margin: 0 0 20px 0;
+}
+
+.banner__header {
+  background-color: var(--tg-green);
+  padding: 20px;
+  color: white;
+}
+
+.banner__selection {
+  background-color: var(--tg-grey);
+  padding: 20px;
+  font-weight: bold;
+}
+
+#year-select {
+  padding: 5px 10px 5px 10px;
+  border: 2px solid black;
+  margin: 0 0 0 10px;
+  font-size: 16px;
+}
+
+.chart {
+  margin: 0 0 40px 0;
+}
+
+.chart__title {
+  background-color: var(--tg-grey);
+  padding: 10px 20px 10px 20px;
+  margin: 0 0 20px 0;
+}
+
+.chart__container {
+  min-height: 40vh;
+}
+
+.year-select {
+  grid-area: select;
+}
+
+.gender-chart {
+  grid-area: gender;
+}
+
+.level-chart {
+  grid-area: level;
+}
+
+.type-chart {
+  grid-area: type;
+}
+
+.country-chart {
+  grid-area: country;
+}
+
+@media (min-width: 1000px) {
+  main {
+    grid-template-columns: 1fr 500px 500px 1fr;
+    grid-template-rows: auto auto auto;
+    grid-template-areas:
+    ". banner banner ."
+    ". gender type ."
+    ". level country ."
+    ;
+  }
+}

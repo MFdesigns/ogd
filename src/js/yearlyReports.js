@@ -13,7 +13,7 @@ const app = {
 };
 
 // Year selection dropdown
-const yearSelect = document.getElementsByClassName('year-select')[0];
+const yearSelect = document.getElementById('year-select');
 
 /**
  * Gets JSON data from API
@@ -166,7 +166,7 @@ function getCountryCount(year) {
  * @returns {Chart}
  */
 function createGenderChart(year) {
-  const canvas = document.getElementsByClassName('gender-chart')[0];
+  const canvas = document.getElementsByClassName('gender-chart-canvas')[0];
   const genderCount = getGenderCount(year);
   const chart = new Chart(canvas.getContext('2d'), {
     type: 'pie',
@@ -183,6 +183,9 @@ function createGenderChart(year) {
         'Weiblich',
       ],
     },
+    options: {
+      maintainAspectRatio: false,
+    },
   });
 
   return chart;
@@ -194,7 +197,7 @@ function createGenderChart(year) {
  * @returns {Chart}
  */
 function createLevelChart(year) {
-  const canvas = document.getElementsByClassName('level-chart')[0];
+  const canvas = document.getElementsByClassName('level-chart-canvas')[0];
   const levelCount = getLevelCount(year);
   const chart = new Chart(canvas.getContext('2d'), {
     type: 'pie',
@@ -211,6 +214,9 @@ function createLevelChart(year) {
         'Sekundarstufe II',
       ],
     },
+    options: {
+      maintainAspectRatio: false,
+    },
   });
 
   return chart;
@@ -222,7 +228,7 @@ function createLevelChart(year) {
  * @returns {Chart}
  */
 function createTypeChart(year) {
-  const canvas = document.getElementsByClassName('type-chart')[0];
+  const canvas = document.getElementsByClassName('type-chart-canvas')[0];
   const typeCount = getTypeCount(year);
   const chart = new Chart(canvas.getContext('2d'), {
     type: 'pie',
@@ -245,6 +251,9 @@ function createTypeChart(year) {
         'Pasarelle',
       ],
     },
+    options: {
+      maintainAspectRatio: false,
+    },
   });
 
   return chart;
@@ -256,7 +265,7 @@ function createTypeChart(year) {
  * @returns {Chart}
  */
 function createCountryChart(year) {
-  const canvas = document.getElementsByClassName('country-chart')[0];
+  const canvas = document.getElementsByClassName('country-chart-canvas')[0];
 
   const countries = getCountryCount(year);
   const countryNames = Object.keys(countries);
@@ -275,6 +284,9 @@ function createCountryChart(year) {
         backgroundColor: colors,
       }],
       labels: countryNames,
+    },
+    options: {
+      maintainAspectRatio: false,
     },
   });
 
@@ -341,14 +353,23 @@ function updateTypeChart(year) {
  * @param {string} year Selected year
  */
 function updateCountryChart(year) {
-  const countryCount = getCountryCount(year);
+  const countries = getCountryCount(year);
+  const countryNames = Object.keys(countries);
+  const countrySizes = Object.values(countries);
+  const colors = [];
+
+  for (let i = 0; i < countrySizes.length; i += 1) {
+    colors.push('green');
+  }
+
   app.charts.country.data.datasets.length = 0;
-  app.charts.country.data.datasets.push({
-    data: countryCount.countrySize,
-    backgroundColor: [
-      'green',
-    ],
-  });
+  app.charts.country.data = {
+    datasets: [{
+      data: countrySizes,
+      backgroundColor: colors,
+    }],
+    labels: countryNames,
+  };
   app.charts.country.update();
 }
 
