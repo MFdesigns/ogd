@@ -1,3 +1,7 @@
+/*
+  Copyright (c) 2020 Michel Fäh, Dario Romandini
+*/
+
 main {
   display: grid;
   grid-template-columns: 100%;

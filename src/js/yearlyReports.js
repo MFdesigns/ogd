@@ -1,5 +1,5 @@
 /*
-Copyright (c) 2020 Michel Fäh, Dario Romandini
+  Copyright (c) 2020 Michel Fäh, Dario Romandini
 */
 
 /* eslint-disable import/extensions */
