@@ -139,6 +139,24 @@ function getTypeCount(year) {
   };
 }
 
+function getCountryCount(year) {
+  const students = app.data.years[year];
+  const countryCounts = [];
+  const countries = [];
+
+  students.forEach((student) => {
+    const country = app.data.countries[student.country];
+    countries.push(country);
+    countryCounts.push(student.size);
+  });
+
+  return {
+    countries,
+    countrySize: countryCounts,
+  };
+}
+
+
 /**
  * Creates gender chart and adds it to page
  * @param {string} year Selected year
@@ -219,6 +237,25 @@ function createTypeChart(year) {
   return chart;
 }
 
+function createCountryChart(year) {
+  const canvas = document.getElementsByClassName('country-chart')[0];
+  const countryCount = getCountryCount(year);
+  const chart = new Chart(canvas.getContext('2d'), {
+    type: 'horizontalBar',
+    data: {
+      datasets: [{
+        data: countryCount.countrySize,
+        backgroundColor: [
+          'green',
+        ],
+      }],
+      labels: countryCount.countries,
+    },
+  });
+
+  return chart;
+}
+
 /**
  * Updates gender chart with given year
  * @param {string} year Selected year
@@ -266,6 +303,18 @@ function updateTypeChart(year) {
   app.charts.type.update();
 }
 
+function updateCountryChart(year) {
+  const countryCount = getCountryCount(year);
+  app.charts.country.data.datasets.length = 0;
+  app.charts.country.data.datasets.push({
+    data: countryCount.countrySize,
+    backgroundColor: [
+      'green',
+    ],
+  });
+  app.charts.country.update();
+}
+
 // Get API data and create all charts with default year on page load
 document.addEventListener('DOMContentLoaded', async () => {
   // Get JSON from API and add it to global app data
@@ -278,6 +327,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   app.charts.gender = createGenderChart(year);
   app.charts.level = createLevelChart(year);
   app.charts.type = createTypeChart(year);
+  app.charts.country = createCountryChart(year);
 });
 
 
@@ -286,4 +336,5 @@ yearSelect.addEventListener('change', (event) => {
   updateGenderChart(event.target.value);
   updateLevelChart(event.target.value);
   updateTypeChart(event.target.value);
+  updateCountryChart(event.target.value);
 });

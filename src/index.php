@@ -57,6 +57,7 @@
     <canvas class="gender-chart"></canvas>
     <canvas class="level-chart"></canvas>
     <canvas class="type-chart"></canvas>
+    <canvas class="country-chart"></canvas>
   </main>
 
   <footer>
