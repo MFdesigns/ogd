@@ -40,12 +40,10 @@ function getGenderCount(year) {
     const gender = app.data.genders[student.gender];
     switch (gender) {
       case 'männlich':
-        maleCount += 1;
         maleCount += student.size;
         break;
 
       case 'weiblich':
-        femaleCount += 1;
         femaleCount += student.size;
         break;
 
@@ -73,12 +71,10 @@ function getLevelCount(year) {
     const level = app.data.levels[student.level];
     switch (level) {
       case 'Sekundarstufe I':
-        levelOneCount += 1;
         levelOneCount += student.size;
         break;
 
       case 'Sekundarstufe II':
-        levelTwoCount += 1;
         levelTwoCount += student.size;
         break;
 
@@ -109,27 +105,22 @@ function getTypeCount(year) {
     const type = app.data.types[student.type];
     switch (type) {
       case 'Fachmittelschulen':
-        typeFMSCount += 1;
         typeFMSCount += student.size;
         break;
 
       case 'Gymnasium':
-        typeGYMCount += 1;
         typeGYMCount += student.size;
         break;
 
       case 'Handelsmittelschulen':
-        typeHMSCount += 1;
         typeHMSCount += student.size;
         break;
 
       case 'Informatikmittelschulen':
-        typeIMSCount += 1;
         typeIMSCount += student.size;
         break;
 
       case 'Passerelle':
-        typePASCount += 1;
         typePASCount += student.size;
         break;
 
@@ -153,19 +144,19 @@ function getTypeCount(year) {
  */
 function getCountryCount(year) {
   const students = app.data.years[year];
-  const countryCounts = [];
-  const countries = [];
+  const countries = {};
 
   students.forEach((student) => {
-    const country = app.data.countries[student.country];
-    countries.push(country);
-    countryCounts.push(student.size);
+    const countryName = app.data.countries[student.country];
+
+    if (countries.hasOwnProperty(countryName)) {
+      countries[countryName] += student.size;
+    } else {
+      countries[countryName] = student.size;
+    }
   });
 
-  return {
-    countries,
-    countrySize: countryCounts,
-  };
+  return countries;
 }
 
 
@@ -266,17 +257,24 @@ function createTypeChart(year) {
  */
 function createCountryChart(year) {
   const canvas = document.getElementsByClassName('country-chart')[0];
-  const countryCount = getCountryCount(year);
+
+  const countries = getCountryCount(year);
+  const countryNames = Object.keys(countries);
+  const countrySizes = Object.values(countries);
+  const colors = [];
+
+  for (let i = 0; i < countrySizes.length; i += 1) {
+    colors.push('green');
+  }
+
   const chart = new Chart(canvas.getContext('2d'), {
     type: 'horizontalBar',
     data: {
       datasets: [{
-        data: countryCount.countrySize,
-        backgroundColor: [
-          'green',
-        ],
+        data: countrySizes,
+        backgroundColor: colors,
       }],
-      labels: countryCount.countries,
+      labels: countryNames,
     },
   });
 
