@@ -65,6 +65,39 @@ function createCountryChart(countryIndex) {
   return chart;
 }
 
+function createTypeChart() {
+  const canvas = document.getElementsByClassName('type-chart-canvas')[0];
+
+  const datasets = [];
+  app.data.types.forEach((type, i) => {
+    datasets[i] = {
+      borderColor: 'green',
+      label: type,
+      data: [],
+    };
+  });
+
+  Object.keys(app.data.years).forEach((year, y) => {
+    app.data.years[year].forEach((student) => {
+      if (!datasets[student.type].data[y]) {
+        datasets[student.type].data[y] = 0;
+      }
+      datasets[student.type].data[y] += student.size;
+    });
+  });
+
+  const chart = new Chart(canvas.getContext('2d'), {
+    type: 'line',
+    data: {
+      labels: Object.keys(app.data.years),
+      datasets,
+    },
+    options: {
+      maintainAspectRatio: false,
+    },
+  });
+}
+
 function updateCountryChart(countryIndex) {
   const data = getCountrySizes(countryIndex);
   app.charts.country.data.datasets.length = 0;
@@ -96,6 +129,6 @@ document.addEventListener('DOMContentLoaded', async () => {
   countrySelect.disabled = false;
 
   // Create charts and add reference to global charts array
-  // app.charts.gender = createGenderChart(year);
   app.charts.country = createCountryChart(countrySelect.value);
+  createTypeChart();
 });

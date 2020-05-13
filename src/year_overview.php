@@ -60,6 +60,13 @@
       </div>
     </div>
 
+    <div class="chart type-chart">
+      <h2 class="chart__title">Typ</h2>
+      <div class="chart__container">
+        <canvas class="type-chart-canvas"></canvas>
+      </div>
+    </div>
+
   </main>
 
   <footer>
