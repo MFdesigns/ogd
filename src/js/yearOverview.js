@@ -98,6 +98,40 @@ function createTypeChart() {
   });
 }
 
+function createLevelChart() {
+  const canvas = document.getElementsByClassName('level-chart-canvas')[0];
+
+  const datasets = [
+    {
+      label: app.data.levels[0],
+      backgroundColor: 'green',
+      data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    },
+    {
+      label: app.data.levels[1],
+      backgroundColor: 'lightgreen',
+      data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    },
+  ];
+
+  Object.keys(app.data.years).forEach((year, y) => {
+    app.data.years[year].forEach((student) => {
+      datasets[student.level].data[y] += student.size;
+    });
+  });
+
+  const chart = new Chart(canvas.getContext('2d'), {
+    type: 'bar',
+    data: {
+      labels: Object.keys(app.data.years),
+      datasets,
+    },
+    options: {
+      maintainAspectRatio: false,
+    },
+  });
+}
+
 function updateCountryChart(countryIndex) {
   const data = getCountrySizes(countryIndex);
   app.charts.country.data.datasets.length = 0;
@@ -131,4 +165,5 @@ document.addEventListener('DOMContentLoaded', async () => {
   // Create charts and add reference to global charts array
   app.charts.country = createCountryChart(countrySelect.value);
   createTypeChart();
+  createLevelChart();
 });

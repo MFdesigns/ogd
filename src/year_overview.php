@@ -67,6 +67,13 @@
       </div>
     </div>
 
+    <div class="chart level-chart">
+      <h2 class="chart__title">Typ</h2>
+      <div class="chart__container">
+        <canvas class="level-chart-canvas"></canvas>
+      </div>
+    </div>
+
   </main>
 
   <footer>
