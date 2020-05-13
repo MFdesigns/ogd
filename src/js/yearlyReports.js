@@ -378,6 +378,13 @@ document.addEventListener('DOMContentLoaded', async () => {
   // Get JSON from API and add it to global app data
   app.data = await getJSONfromAPI();
 
+  // Check if URL contains valid year
+  const hashYear = window.location.hash.replace('#', '');
+  if (Object.keys(app.data.years).indexOf(hashYear) > -1) {
+    // Set select to year
+    yearSelect.value = hashYear;
+  }
+
   // Get the currently selected year
   const year = yearSelect.value;
 
@@ -391,6 +398,9 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 // Update all charts on year selection change
 yearSelect.addEventListener('change', (event) => {
+  // set selected year to url hash
+  window.location.hash = event.target.value;
+
   updateGenderChart(event.target.value);
   updateLevelChart(event.target.value);
   updateTypeChart(event.target.value);
