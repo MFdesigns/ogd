@@ -146,6 +146,37 @@ main {
   margin: 150px 0 0 0;
 }
 
+.banner {
+  grid-area: banner;
+  margin: 0 0 20px 0;
+}
+
+.banner__header {
+  background-color: var(--tg-green);
+  padding: 20px;
+  color: white;
+}
+
+.banner__selection {
+  background-color: var(--tg-grey);
+  padding: 20px;
+  font-weight: bold;
+}
+
+.chart {
+  margin: 0 0 40px 0;
+}
+
+.chart__title {
+  background-color: var(--tg-grey);
+  padding: 10px 20px 10px 20px;
+  margin: 0 0 20px 0;
+}
+
+.chart__container {
+  min-height: 40vh;
+}
+
 /*
   Footer
 */

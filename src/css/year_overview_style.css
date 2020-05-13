@@ -8,28 +8,19 @@ main {
   grid-template-rows: auto auto auto auto auto;
   grid-template-areas:
   "banner"
+  "country"
   "gender"
   "type"
   "level"
-  "country"
   ;
-  column-gap: 20px;
-  row-gap: 20px;
-}
-
-#year-select {
-  padding: 5px 10px 5px 10px;
-  border: 2px solid black;
-  margin: 0 0 0 10px;
-  font-size: 16px;
-}
-
-.year-select {
-  grid-area: select;
 }
 
 .gender-chart {
   grid-area: gender;
+}
+
+.country-chart {
+  grid-area: country;
 }
 
 .level-chart {
@@ -40,18 +31,15 @@ main {
   grid-area: type;
 }
 
-.country-chart {
-  grid-area: country;
-}
-
 @media (min-width: 1000px) {
   main {
-    grid-template-columns: 1fr 500px 500px 1fr;
-    grid-template-rows: auto auto auto;
+    grid-template-columns: 1fr var(--page-width) 1fr;
     grid-template-areas:
-    ". banner banner ."
-    ". gender type ."
-    ". level country ."
+    ". banner   ."
+    ". country  ."
+    ". gender   ."
+    ". type     ."
+    ". level    ."
     ;
   }
 }
