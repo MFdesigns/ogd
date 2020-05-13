@@ -52,6 +52,14 @@
       </div>
     </div>
 
+    <div class="chart country-chart">
+      <h2 class="chart__title">Land</h2>
+      <select name="" id="country-select" disabled></select>
+      <div class="chart__container">
+        <canvas class="country-chart-canvas"></canvas>
+      </div>
+    </div>
+
   </main>
 
   <footer>
