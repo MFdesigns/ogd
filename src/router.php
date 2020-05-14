@@ -48,6 +48,12 @@ class Router {
         break;
       }
 
+      // Get language file containing all texts from selected language
+      $generalLangFile = file_get_contents(ROOT . "/lang/general.lang.json");
+      $generalLangData = json_decode($generalLangFile, true);
+
+      define("LANG_GEN", $generalLangData);
+
       if (isset($urlSegments[1])) {
         switch ($urlSegments[1]) {
         case "yearly-report":

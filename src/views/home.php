@@ -26,6 +26,10 @@
   <!-- Styles -->
   <link rel="stylesheet" href="/css/general_styles.css">
   <link rel="stylesheet" href="/css/home_style.css">
+
+  <!-- Scripts -->
+  <script src="/js/footer.js" defer></script>
+
 </head>
 <body>
 
