@@ -15,7 +15,8 @@ class Router {
     $urlSegments = explode("/", $this->url);
 
     if ($this->url == "/") {
-      echo "Home";
+      define("PAGE_TITLE", "Hauptseite");
+      require_once(ROOT . "/views/home.php");
 
     } else {
       $currentPage = $urlSegments[1];
