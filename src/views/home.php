@@ -25,11 +25,33 @@
 
   <!-- Styles -->
   <link rel="stylesheet" href="/css/general_styles.css">
+  <link rel="stylesheet" href="/css/home_style.css">
 </head>
 <body>
 
   <!-- Header -->
   <?php require_once(ROOT . "/views/header_component.php"); ?>
+
+  <main>
+    <div class="landing">
+      <h1 class="landing__title">Lernende der Mittelschulen</br> des Kantons Thurgau</h1>
+      <p>Diese Website wurde im Rahmen der OGD Projektwoche der Informatikmittelschule erstellt.</p>
+    </div>
+
+    <h2 class="view-header">Seitenübersicht</h2>
+
+    <a class="view yearly-reports-view" href="<?php echo "/" . LANG . "/yearly-report"; ?>">
+      <img src="/res/yearly_report_icon.svg" alt="">
+      <h3 class="view__title">Jahresraport</h3>
+      <p>Der Jahresraport zeigt interessante Statistiken zu einem selektierten Jahr an. Der Raport beeinhaltet die Kategorien: Geschlecht, Land, Stufe und Typ der Mittelschüler des Kanton Thurgau.</p>
+    </a>
+
+    <a class="view year-overview-view" href="<?php echo "/" . LANG . "/year-overview"; ?>">
+      <img src="/res/year_overview_icon.svg" alt="">
+      <h3 class="view__title">Jahresübersicht</h3>
+      <p>Diese Ansicht bietet eine Übersicht der einzelnen Kategorien (Geschlecht, Land, Stufe und Typ) über die Jahre 2007 bis 2019.</p>
+    </a>
+  </main>
 
   <!-- Footer -->
   <?php require_once(ROOT . "/views/footer_component.php"); ?>

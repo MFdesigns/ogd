@@ -1,0 +1,80 @@
+main {
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: auto auto auto auto;
+  grid-template-areas:
+  "landing"
+  "view-header"
+  "yearly-reports-view"
+  "year-overview-view"
+  ;
+  column-gap: 20px;
+  margin: 107px 0 100px 0;
+}
+
+.landing {
+  grid-area: landing;
+  background-color: #045100;
+  padding: 80px 20px 80px 20px;
+  color: white;
+  text-align: center;
+  margin: 0 0 50px 0;
+}
+
+.landing__title {
+  margin: 0 0 10px 0;
+}
+
+.view-header {
+  grid-area: view-header;
+  padding: 20px;
+}
+
+.yearly-reports-view {
+  grid-area: yearly-reports-view;
+}
+
+.year-overview-view {
+  grid-area: year-overview-view;
+}
+
+.view {
+  position: relative;
+  background-color: var(--tg-grey);
+  padding: 20px;
+  text-decoration: none;
+  color: black;
+  margin: 0 0 40px 0;
+}
+.view:hover {
+  cursor: pointer;
+}
+.view:hover::before {
+  width: 100%;
+}
+.view::before {
+  position: absolute;
+  content: "";
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 8px;
+  background-color: var(--tg-green);
+  transition: all 0.5s;
+}
+
+.view__title {
+  margin: 20px 0 10px 0;
+}
+
+@media (min-width: 1000px) {
+  main {
+    grid-template-columns: 1fr 500px 500px 1fr;
+    grid-template-rows: auto auto auto;
+    grid-template-areas:
+    "landing landing landing landing"
+    ". view-header view-header ."
+    ". yearly-reports-view year-overview-view ."
+    ;
+  }
+}
