@@ -1,0 +1,46 @@
+{
+	"header": {
+		"de": {
+			"title": "Lernende der Mittelschule",
+			"navbarReport": "Jahresreport",
+			"navbarOverview": "Jahresübersicht"
+		},
+		"en": {
+			"title": "Middle-school students",
+			"navbarReport": "Annual Report",
+			"navbarOverview": "Annual overview"
+		},
+		"fr": {
+			"title": "les élèves de l'école secondaire",
+			"navbarReport": "Rapport annuel",
+			"navbarOverview": "Aperçu annuel"
+		},
+		"it": {
+			"title": "studenti di liceo",
+			"navbarReport": "Rapporto annuale",
+			"navbarOverview": "Panoramica annuale"
+		}
+	},
+	"footer": {
+		"de": {
+			"title": "Impressum",
+			"description": "Die Daten auf dieser Website wurden durch OGD Schweiz und der Kantonale Verwaltung Thurgau bereitgestellt.",
+			"selectLang": "Sprache"
+		},
+		"en": {
+			"title": "Imprint",
+			"description": "The data on this website was provided by OGD Switzerland and the Cantonal Administration of Thurgovia.",
+			"selectLang": "Language"
+		},
+		"fr": {
+			"title": "Empreinte",
+			"description": "Les données de ce site ont été fournies par l'OGD Suisse et l'administration cantonale de Thurgovie.",
+			"selectLang": "Langue"
+		},
+		"it": {
+			"title": "Impronta",
+			"description": "I dati di questo sito web sono stati forniti da OGD Svizzera e dall'Amministrazione cantonale della Turgovia.",
+			"selectLang": "Lingua"
+		}
+	}
+}
