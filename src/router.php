@@ -13,26 +13,33 @@ class Router {
 
   function route() {
     $urlSegments = explode("/", $this->url);
+    array_shift($urlSegments);
 
-    if ($this->url == "/") {
-      define("PAGE_TITLE", "Hauptseite");
-      require_once(ROOT . "/views/home.php");
+    // Get language route
+    $lang = $urlSegments[0];
 
-    } else {
-      $currentPage = $urlSegments[1];
-      switch ($urlSegments[1]) {
-        case "yearly-report":
-          define("PAGE_TITLE", "Jahresreport");
-          require_once(ROOT . "/views/yearly_report.php");
-        break;
-
-        case "year-overview":
-          define("PAGE_TITLE", "Jahresübersicht");
-          require_once(ROOT . "/views/year_overview.php");
-        break;
-
+    if (count($urlSegments) >= 1) {
+      switch($lang) {
         case "api":
           require_once(ROOT . "/api.php");
+          die();
+        break;
+
+        case "":
+        case "de":
+          define("LANG", "de");
+        break;
+
+        case "fr":
+          define("LANG", "fr");
+        break;
+
+        case "en":
+          define("LANG", "en");
+        break;
+
+        case "it":
+          define("LANG", "it");
         break;
 
         default:
@@ -40,9 +47,33 @@ class Router {
           die();
         break;
       }
+
+      if (isset($urlSegments[1])) {
+        switch ($urlSegments[1]) {
+        case "yearly-report":
+          define("LANG_FILE", "yearly_reports.lang.json");
+          require_once(ROOT . "/views/yearly_report.php");
+        break;
+
+        case "year-overview":
+          define("LANG_FILE", "year_overview.lang.json");
+          require_once(ROOT . "/views/year_overview.php");
+        break;
+
+        default:
+          http_response_code(404);
+          die();
+        break;
+      }
+      } else {
+        define("PAGE_TITLE", "Hauptseite");
+        require_once(ROOT . "/views/home.php");
+      }
+    } else {
+      http_response_code(404);
+      die();
     }
   }
-
 }
 
 ?>
