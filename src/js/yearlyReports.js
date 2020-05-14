@@ -173,7 +173,7 @@ function createGenderChart(year) {
         data: [genderCount.female, genderCount.male],
         backgroundColor: [
           'pink',
-          'blue',
+          'lightblue',
         ],
       }],
       labels: [
@@ -183,6 +183,9 @@ function createGenderChart(year) {
     },
     options: {
       maintainAspectRatio: false,
+      legend: {
+        position: 'bottom',
+      },
     },
   });
 
@@ -211,6 +214,9 @@ function createLevelChart(year) {
     },
     options: {
       maintainAspectRatio: false,
+      legend: {
+        position: 'bottom',
+      },
     },
   });
 
@@ -231,17 +237,20 @@ function createTypeChart(year) {
       datasets: [{
         data: [typeCount.FMS, typeCount.GYM, typeCount.HMS, typeCount.IMS, typeCount.PAS],
         backgroundColor: [
-          'green',
-          'lightgreen',
           'darkgreen',
-          'blue',
-          'lightblue',
+          'lightgreen',
+          'limegreen',
+          'lawngreen',
+          'green',
         ],
       }],
       labels: app.data.types[app.lang],
     },
     options: {
       maintainAspectRatio: false,
+      legend: {
+        position: 'bottom',
+      },
     },
   });
 
@@ -276,6 +285,9 @@ function createCountryChart(year) {
     },
     options: {
       maintainAspectRatio: false,
+      legend: {
+        display: false,
+      },
     },
   });
 
@@ -291,10 +303,10 @@ function updateGenderChart(year) {
   // Clear data
   app.charts.gender.data.datasets.length = 0;
   app.charts.gender.data.datasets.push({
-    data: [genderCount.male, genderCount.female],
+    data: [genderCount.female, genderCount.male],
     backgroundColor: [
-      'blue',
       'pink',
+      'lightblue',
     ],
   });
   app.charts.gender.update();
@@ -330,8 +342,8 @@ function updateTypeChart(year) {
       'green',
       'lightgreen',
       'darkgreen',
-      'blue',
-      'lightblue',
+      'chartreuse',
+      'lawngreen',
     ],
   });
   app.charts.type.update();

@@ -60,6 +60,10 @@ function createCountryChart(countryIndex) {
     },
     options: {
       maintainAspectRatio: false,
+      legend: {
+        display: false,
+        position: 'bottom',
+      },
     },
   });
 
@@ -96,6 +100,9 @@ function createGenderChart() {
     },
     options: {
       maintainAspectRatio: false,
+      legend: {
+        position: 'bottom',
+      },
     },
   });
 }
@@ -105,11 +112,14 @@ function createTypeChart() {
   const canvas = document.getElementsByClassName('type-chart-canvas')[0];
 
   const datasets = [];
+  const colors = ['darkgreen', 'lightgreen', 'limegreen', 'lawngreen', 'green'];
+
   app.data.types[app.lang].forEach((type, i) => {
     datasets[i] = {
-      borderColor: 'green',
+      borderColor: colors[i],
       label: type,
       data: [],
+      fill: false,
     };
   });
 
@@ -130,6 +140,9 @@ function createTypeChart() {
     },
     options: {
       maintainAspectRatio: false,
+      legend: {
+        position: 'bottom',
+      },
     },
   });
 }
@@ -164,6 +177,9 @@ function createLevelChart() {
     },
     options: {
       maintainAspectRatio: false,
+      legend: {
+        position: 'bottom',
+      },
     },
   });
 }
@@ -182,6 +198,28 @@ countrySelect.addEventListener('change', (event) => {
   updateCountryChart(event.target.value);
 });
 
+function fillCountrySelect() {
+  // Create copy of countries array
+  const countries = [...app.data.countries[app.lang]];
+
+  // Sort alphabetically
+  countries.sort((a, b) => {
+    if (a < b) { return -1; }
+    if (a > b) { return 1; }
+    return 0;
+  });
+
+  countries.forEach((country) => {
+    const option = document.createElement('option');
+    option.value = app.data.countries[app.lang].indexOf(country);
+    option.textContent = country;
+
+    countrySelect.appendChild(option);
+  });
+  // Enable select box after filling it
+  countrySelect.disabled = false;
+}
+
 // Get API data and create all charts with default year on page load
 document.addEventListener('DOMContentLoaded', async () => {
   // Get JSON from API and add it to global app data
@@ -190,16 +228,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   // Set page language
   app.lang = document.documentElement.getAttribute('lang');
 
-  // Fill country select box with list of all countries
-  app.data.countries[app.lang].forEach((country, i) => {
-    const option = document.createElement('option');
-    option.value = i;
-    option.textContent = country;
-
-    countrySelect.appendChild(option);
-  });
-  // Enable select box after filling it
-  countrySelect.disabled = false;
+  fillCountrySelect();
 
   // Create charts and add reference to global charts array
   app.charts.country = createCountryChart(countrySelect.value);

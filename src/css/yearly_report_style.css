@@ -17,13 +17,6 @@ main {
   row-gap: 20px;
 }
 
-#year-select {
-  padding: 5px 10px 5px 10px;
-  border: 2px solid black;
-  margin: 0 0 0 10px;
-  font-size: 16px;
-}
-
 .year-select {
   grid-area: select;
 }

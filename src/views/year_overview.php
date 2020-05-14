@@ -2,15 +2,22 @@
   Copyright (c) 2020 Michel Fäh, Dario Romandini
   -->
 
+<?php
+
+// Get language file containing all texts from selected language
+$langFile = file_get_contents(ROOT . "/lang/" . LANG_FILE);
+$langData = json_decode($langFile, true);
+
+?>
+
 <!DOCTYPE html>
 <html lang="<?php echo LANG; ?>">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="author" content="Michel Fäh, Dario Romandini">
-  <!-- TODO: Add description meta data -->
-  <meta name="description" content="">
-  <title>Lernende Mittelschulen TG | <?php echo PAGE_TITLE; ?></title>
+  <meta name="description" content="<?php echo $langData[LANG]["page"]["description"]; ?>">
+  <title>Lernende Mittelschulen TG | <?php echo $langData[LANG]["page"]["title"]; ?></title>
 
   <!-- Favicons -->
   <link rel="apple-touch-icon" sizes="180x180" href="/res/favicons/apple-touch-icon.png">
@@ -41,35 +48,63 @@
 
     <div class="banner">
       <div class="banner__header">
-        <h1>Jahresübersicht</h1>
-        <p>Die Jahresübersicht zeigt relevante Statistiken über die ganzen Jahre hinweg an.</p>
+        <h1><?php echo $langData[LANG]["page"]["title"]; ?></h1>
+        <p><?php echo $langData[LANG]["page"]["description"]; ?></p>
       </div>
     </div>
 
     <div class="chart gender-chart">
-      <h2 class="chart__title">Geschlecht</h2>
+      <div class="chart__header">
+        <h2 class="chart__header__title">
+          <?php echo $langData[LANG]["charts"]["gender"]["title"]; ?>
+        </h2>
+        <p>
+          <?php echo $langData[LANG]["charts"]["gender"]["description"]; ?>
+        </p>
+      </div>
       <div class="chart__container">
         <canvas class="gender-chart-canvas"></canvas>
       </div>
     </div>
 
     <div class="chart country-chart">
-      <h2 class="chart__title">Land</h2>
-      <select name="" id="country-select" disabled></select>
+      <div class="chart__header">
+        <h2 class="chart__header__title">
+          <?php echo $langData[LANG]["charts"]["country"]["title"]; ?>
+          <select class="select" id="country-select" disabled></select>
+        </h2>
+        <p>
+          <?php echo $langData[LANG]["charts"]["country"]["description"]; ?>
+        </p>
+      </div>
       <div class="chart__container">
         <canvas class="country-chart-canvas"></canvas>
       </div>
     </div>
 
     <div class="chart type-chart">
-      <h2 class="chart__title">Typ</h2>
+      <div class="chart__header">
+        <h2 class="chart__header__title">
+          <?php echo $langData[LANG]["charts"]["type"]["title"]; ?>
+        </h2>
+        <p>
+          <?php echo $langData[LANG]["charts"]["type"]["description"]; ?>
+        </p>
+      </div>
       <div class="chart__container">
         <canvas class="type-chart-canvas"></canvas>
       </div>
     </div>
 
     <div class="chart level-chart">
-      <h2 class="chart__title">Stufe</h2>
+      <div class="chart__header">
+        <h2 class="chart__header__title">
+          <?php echo $langData[LANG]["charts"]["level"]["title"]; ?>
+        </h2>
+        <p>
+          <?php echo $langData[LANG]["charts"]["level"]["description"]; ?>
+        </p>
+      </div>
       <div class="chart__container">
         <canvas class="level-chart-canvas"></canvas>
       </div>
