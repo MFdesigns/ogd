@@ -28,6 +28,7 @@
   <link rel="stylesheet" href="/css/year_overview_style.css">
 
   <!-- Scripts -->
+  <script src="/js/footer.js" defer></script>
   <script src="/js/yearOverview.js" type="module" defer></script>
 
 </head>

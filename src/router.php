@@ -51,22 +51,24 @@ class Router {
       if (isset($urlSegments[1])) {
         switch ($urlSegments[1]) {
         case "yearly-report":
+          define("CURRENT_PAGE", "yearly-report");
           define("LANG_FILE", "yearly_reports.lang.json");
           require_once(ROOT . "/views/yearly_report.php");
         break;
 
         case "year-overview":
+          define("CURRENT_PAGE", "year-overview");
           define("LANG_FILE", "year_overview.lang.json");
           require_once(ROOT . "/views/year_overview.php");
         break;
 
         default:
-          http_response_code(404);
-          die();
+        http_response_code(404);
+        die();
         break;
       }
-      } else {
-        define("PAGE_TITLE", "Hauptseite");
+    } else {
+        define("CURRENT_PAGE", "");
         require_once(ROOT . "/views/home.php");
       }
     } else {

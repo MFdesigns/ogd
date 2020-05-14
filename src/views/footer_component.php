@@ -22,6 +22,13 @@
         </a>
       </li>
     </ul>
+    <label for="lang-select">Sprache</label>
+    <select id="lang-select" class="footer__lang">
+      <option value="<?php echo "/de/" . CURRENT_PAGE; ?>" <?php if (LANG == "de") echo "selected"; ?>>Deutsch</option>
+      <option value="<?php echo "/fr/" . CURRENT_PAGE; ?>" <?php if (LANG == "fr") echo "selected"; ?>>Français</option>
+      <option value="<?php echo "/en/" . CURRENT_PAGE; ?>" <?php if (LANG == "en") echo "selected"; ?>>English</option>
+      <option value="<?php echo "/it/" . CURRENT_PAGE; ?>" <?php if (LANG == "it") echo "selected"; ?>>Italiano</option>
+    </select>
   </div>
   <p class="footer__copyright">Copyright &copy 2020 Michel Fäh und Dario Romandini</p>
 </footer>
