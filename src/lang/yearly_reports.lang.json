@@ -8,23 +8,95 @@
     "charts": {
       "gender": {
         "title": "Geschlecht",
-        "description": "Zeigt die Anzahl Schüler in männlich und weiblich des aktuellen jahrs"
+        "description": "Zeigt die Anzahl Schüler in männlich und weiblich des aktuellen Jahres."
       },
       "type": {
         "title": "Typ",
-        "description": "..."
+        "description": "Zeigt die Anzahl Schüler je nach Typ der Mittelschule des aktuellen Jahres."
       },
       "level": {
         "title": "Stufe",
-        "description": "..."
+        "description": "Zeigt die Anzahl Schüler des aktuellen Jahres von der Stufe her an."
       },
       "country": {
         "title": "Land",
-        "description": "..."
+        "description": "Zeigt die Anzahl Schüler nach Nationalitäten des aktuellen Jahres."
       }
     }
   },
-  "fr": {},
-  "en": {},
-  "it": {}
+  "fr": {
+    "page": {
+      "title": "Rapport annuel",
+      "description": "Le rapport annuel présente des statistiques importantes pour l'année sélectionnée."
+    },
+    "yearSelection": "Année",
+    "charts": {
+      "gender": {
+        "title": "Sexe",
+        "description": "Indique le nombre d'étudiants en hommes et en femmes de l'année actuelle."
+      },
+      "type": {
+        "title": "Type",
+        "description": "Indique le nombre d'élèves selon le type d'école secondaire de l'année actuelle."
+      },
+      "level": {
+        "title": "Niveau",
+        "description": "Indique le nombre d'étudiants de l'année actuelle à partir du niveau."
+      },
+      "country": {
+        "title": "Pays",
+        "description": "Indique le nombre d'étudiants par nationalité pour l'année actuelle."
+      }
+    }
+  },
+  "en": {
+    "page": {
+      "title": "Annual Report",
+      "description": "The annual report displays relevant statistics for the selected year."
+    },
+    "yearSelection": "Year",
+    "charts": {
+      "gender": {
+        "title": "Gender",
+        "description": "Shows the number of students in male and female of the current year."
+      },
+      "type": {
+        "title": "Type",
+        "description": "Shows the number of pupils according to the type of secondary school of the current year."
+      },
+      "level": {
+        "title": "Level",
+        "description": "Shows the number of students of the current year by the level."
+      },
+      "country": {
+        "title": "Country",
+        "description": "Shows the number of students by nationality for the current year."
+      }
+    }
+  },
+  "it": {
+    "page": {
+      "title": "Rapporto annuale",
+      "description": "Il rapporto annuale visualizza le statistiche rilevanti per l'anno selezionato."
+    },
+    "yearSelection": "Anno",
+    "charts": {
+      "gender": {
+        "title": "Sesso",
+        "description": "Visualizza il numero di studenti in uomini e donne dell'anno in corso."
+      },
+      "type": {
+        "title": "Tipo",
+        "description": "Visualizza il numero di alunni in base al tipo di scuola secondaria dell'anno in corso."
+      },
+      "level": {
+        "title": "Livello",
+        "description": "Visualizza il numero di studenti dell'anno in corso a partire dal livello."
+      },
+      "country": {
+        "title": "Paese",
+        "description": "Visualizza il numero di studenti per nazionalità per l'anno in corso."
+      }
+    }
+  }
 }
