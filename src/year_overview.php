@@ -68,7 +68,7 @@
     </div>
 
     <div class="chart level-chart">
-      <h2 class="chart__title">Level</h2>
+      <h2 class="chart__title">Stufe</h2>
       <div class="chart__container">
         <canvas class="level-chart-canvas"></canvas>
       </div>
