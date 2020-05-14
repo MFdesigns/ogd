@@ -18,7 +18,7 @@ const app = {
  * Gets JSON data from API
  */
 async function getJSONfromAPI() {
-  const request = await fetch('/api.php', { method: 'GET' });
+  const request = await fetch('/api', { method: 'GET' });
   const json = await request.json();
   return json;
 }
@@ -97,7 +97,7 @@ function createGenderChart() {
       maintainAspectRatio: false,
     },
   });
- }
+}
 
 
 function createTypeChart() {

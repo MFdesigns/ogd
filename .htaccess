@@ -1,0 +1,4 @@
+RewriteEngine On
+
+RewriteCond %{REQUEST_URI} !(\.png|\.jpg|\.jpeg|\.js|\.css|\.svg)$
+RewriteRule (.*) src/index.php
