@@ -38,6 +38,10 @@ class Router {
           define("LANG", "en");
         break;
 
+        case "it":
+          define("LANG", "it");
+        break;
+
         default:
           http_response_code(404);
           die();
@@ -47,12 +51,12 @@ class Router {
       if (isset($urlSegments[1])) {
         switch ($urlSegments[1]) {
         case "yearly-report":
-          define("PAGE_TITLE", "Jahresreport");
+          define("LANG_FILE", "yearly_reports.lang.json");
           require_once(ROOT . "/views/yearly_report.php");
         break;
 
         case "year-overview":
-          define("PAGE_TITLE", "Jahresübersicht");
+          define("LANG_FILE", "year_overview.lang.json");
           require_once(ROOT . "/views/year_overview.php");
         break;
 
