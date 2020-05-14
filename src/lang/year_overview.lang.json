@@ -1,0 +1,98 @@
+{
+    "de": {
+      "page": {
+        "title": "Jahresübersicht",
+        "description": "Die Jahresübersicht zeigt relevante Statistiken über die ganzen Jahre hinweg an."
+      },
+      "charts": {
+        "country": {
+            "title": "Land",
+            "description": "Zeigt je nach selektiertem Land die Jahresübersicht."
+          },
+        "gender": {
+          "title": "Geschlecht",
+          "description": "Zeigt Männlich und Weibliche über die Jahre hinweg."
+        },
+        "type": {
+          "title": "Typ",
+          "description": "Zeigt die Typen der Mittelschule über die Jahre hinweg."
+        },
+        "level": {
+          "title": "Stufe",
+          "description": "Zeigt die Stufe über die Jahre hinweg."
+        }
+      }
+    },
+    "fr": {
+        "page": {
+            "title": "Aperçu annuel",
+            "description": "Le aperçu annuel présente des statistiques pertinentes sur l'ensemble des années."
+          },
+          "charts": {
+            "country": {
+                "title": "Pays",
+                "description": "Présente l'aperçu annuel en cours selon le pays sélectionné."
+              },
+            "gender": {
+              "title": "Sexe",
+              "description": "Présente des spectacles masculins et féminins au fil des ans."
+            },
+            "type": {
+              "title": "Type",
+              "description": "Présente les types de collège au fil des ans."
+            },
+            "level": {
+              "title": "Niveau",
+              "description": "Indique le niveau au fil des ans."
+            }
+          }
+    },
+    "en": {
+        "page": {
+            "title": "Annual overview",
+            "description": "The annual overview shows relevant statistics over the whole years."
+          },
+          "charts": {
+            "country": {
+                "title": "Country",
+                "description": "Zeigt je nach selektiertem Land die Jahresübersicht."
+              },
+            "gender": {
+              "title": "Gender",
+              "description": "Shows male and female over the years."
+            },
+            "type": {
+              "title": "Type",
+              "description": "Shows the secondary school types over the years."
+            },
+            "level": {
+              "title": "Level",
+              "description": "Shows the level over the years."
+            }
+          }
+    },
+    "it": {
+        "page": {
+            "title": "Panoramica annuale",
+            "description": "La panoramica annuale visualizza le statistiche rilevanti per l'intero arco degli anni."
+          },
+          "charts": {
+            "country": {
+                "title": "Paesa",
+                "description": "Visualizza la panoramica annuale a seconda del paese selezionato."
+              },
+            "gender": {
+              "title": "Sesso",
+              "description": "Visualizza uomini e donne nel corso degli anni."
+            },
+            "type": {
+              "title": "Tipo",
+              "description": "Visualizza i tipi di scuola media nel corso degli anni."
+            },
+            "level": {
+              "title": "Livello",
+              "description": "Visualizza il livello nel corso degli anni."
+            }
+          }
+    }
+  }
