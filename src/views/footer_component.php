@@ -11,13 +11,13 @@
     <ul class="imprint__list">
       <li>
         <a class="imprint__link" href="https://opendata.swiss/de/dataset/lernende-der-mittelschulen-kanton-thurgau">
-          <img class="imprint__link__icon" src="./res/opendata_icon.svg" alt="">
+          <img class="imprint__link__icon" src="/res/opendata_icon.svg" alt="">
           OGD Datensatz
         </a>
       </li>
       <li>
         <a class="imprint__link" href="https://github.com/MFdesigns/ogd">
-          <img class="imprint__link__icon" src="./res/github_icon.svg" alt="">
+          <img class="imprint__link__icon" src="/res/github_icon.svg" alt="">
           Source Code
         </a>
       </li>

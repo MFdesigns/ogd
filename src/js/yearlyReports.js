@@ -19,7 +19,8 @@ const yearSelect = document.getElementById('year-select');
  * Gets JSON data from API
  */
 async function getJSONfromAPI() {
-  const request = await fetch('/api', { method: 'GET' });
+  const apiURL = `http://${window.location.host}/api`;
+  const request = await fetch(apiURL, { method: 'GET' });
   const json = await request.json();
   return json;
 }

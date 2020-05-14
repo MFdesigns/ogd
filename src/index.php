@@ -6,7 +6,7 @@
 
 define("DEBUG", true);
 define("ROOT", __DIR__);
-define("HOST_ROOT", $_SERVER["SERVER_NAME"]);
+define("HOST_ROOT", "http://" . $_SERVER["SERVER_NAME"]);
 
 require_once(ROOT . "/router.php");
 
