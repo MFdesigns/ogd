@@ -1,0 +1,30 @@
+{
+  "de": {
+    "page": {
+      "title": "Jahresreport",
+      "description": "Der Jahresreport zeigt relevante Statistiken zum selektierten Jahr an."
+    },
+    "yearSelection": "Jahr",
+    "charts": {
+      "gender": {
+        "title": "Geschlecht",
+        "description": "Zeigt die Anzahl Schüler in männlich und weiblich des aktuellen jahrs"
+      },
+      "type": {
+        "title": "Typ",
+        "description": "..."
+      },
+      "level": {
+        "title": "Stufe",
+        "description": "..."
+      },
+      "country": {
+        "title": "Land",
+        "description": "..."
+      }
+    }
+  },
+  "fr": {},
+  "en": {},
+  "it": {}
+}
