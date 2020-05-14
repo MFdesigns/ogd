@@ -23,7 +23,7 @@
       </li>
     </ul>
     <label for="lang-select">Sprache</label>
-    <select id="lang-select" class="footer__lang">
+    <select id="lang-select" class="footer__lang select">
       <option value="<?php echo "/de/" . CURRENT_PAGE; ?>" <?php if (LANG == "de") echo "selected"; ?>>Deutsch</option>
       <option value="<?php echo "/fr/" . CURRENT_PAGE; ?>" <?php if (LANG == "fr") echo "selected"; ?>>Français</option>
       <option value="<?php echo "/en/" . CURRENT_PAGE; ?>" <?php if (LANG == "en") echo "selected"; ?>>English</option>

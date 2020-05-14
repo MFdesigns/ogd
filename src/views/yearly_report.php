@@ -16,7 +16,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="author" content="Michel Fäh, Dario Romandini">
-  <!-- TODO: Add description meta data -->
   <meta name="description" content="<?php echo $langData[LANG]["page"]["description"]; ?>">
   <title>Lernende Mittelschulen TG | <?php echo $langData[LANG]["page"]["title"]; ?></title>
 
@@ -55,7 +54,7 @@
         <label for="year-select">
           <?php echo $langData[LANG]["yearSelection"]; ?>
         </label>
-        <select name="" id="year-select">
+        <select id="year-select" class="select">
           <option value="2007/2008">2007/2008</option>
           <option value="2008/2009">2008/2009</option>
           <option value="2009/2010">2009/2010</option>
@@ -73,48 +72,56 @@
     </div>
 
     <div class="chart gender-chart">
-      <h2 class="chart__title">
-        <?php echo $langData[LANG]["charts"]["gender"]["title"]; ?>
-      </h2>
-      <p>
-        <?php echo $langData[LANG]["charts"]["gender"]["description"]; ?>
-      </p>
+      <div class="chart__header">
+        <h2 class="chart__header__title">
+          <?php echo $langData[LANG]["charts"]["gender"]["title"]; ?>
+        </h2>
+        <p>
+          <?php echo $langData[LANG]["charts"]["gender"]["description"]; ?>
+        </p>
+      </div>
       <div class="chart__container">
         <canvas class="gender-chart-canvas"></canvas>
       </div>
     </div>
 
     <div class="chart level-chart">
-      <h2 class="chart__title">
-        <?php echo $langData[LANG]["charts"]["level"]["title"]; ?>
-      </h2>
-      <p>
-        <?php echo $langData[LANG]["charts"]["level"]["description"]; ?>
-      </p>
+      <div class="chart__header">
+        <h2 class="chart__header__title">
+          <?php echo $langData[LANG]["charts"]["level"]["title"]; ?>
+        </h2>
+        <p>
+          <?php echo $langData[LANG]["charts"]["level"]["description"]; ?>
+        </p>
+      </div>
       <div class="chart__container">
         <canvas class="level-chart-canvas"></canvas>
       </div>
     </div>
 
     <div class="chart type-chart">
-      <h2 class="chart__title">
-        <?php echo $langData[LANG]["charts"]["type"]["title"]; ?>
-      </h2>
-      <p>
-        <?php echo $langData[LANG]["charts"]["type"]["description"]; ?>
-      </p>
+      <div class="chart__header">
+        <h2 class="chart__header__title">
+          <?php echo $langData[LANG]["charts"]["type"]["title"]; ?>
+        </h2>
+        <p>
+          <?php echo $langData[LANG]["charts"]["type"]["description"]; ?>
+        </p>
+      </div>
       <div class="chart__container">
         <canvas class="type-chart-canvas"></canvas>
       </div>
     </div>
 
     <div class="chart country-chart">
-      <h2 class="chart__title">
-        <?php echo $langData[LANG]["charts"]["country"]["title"]; ?>
-      </h2>
-      <p>
-        <?php echo $langData[LANG]["charts"]["country"]["description"]; ?>
-      </p>
+      <div class="chart__header">
+        <h2  class="chart__header__title">
+          <?php echo $langData[LANG]["charts"]["country"]["title"]; ?>
+        </h2>
+        <p>
+          <?php echo $langData[LANG]["charts"]["country"]["description"]; ?>
+        </p>
+      </div>
       <div class="chart__container">
         <canvas class="country-chart-canvas"></canvas>
       </div>

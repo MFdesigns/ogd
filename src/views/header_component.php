@@ -8,7 +8,7 @@
   <div class="title">
     <div class="header">
       <img class="header__icon" src="/res/header_icon.svg" alt="">
-      <h1 class="header__title">Lernende der Mittelschulen</h1>
+      <h1 class="header__title"><a href="/">Lernende der Mittelschulen</a></h1>
     </div>
   </div>
   <nav>
