@@ -12,6 +12,7 @@ const countrySelect = document.getElementById('country-select');
 const app = {
   data: {}, // JSON data from the API
   charts: [], // Reference to all charts
+  lang: 'de',
 };
 
 /**
@@ -70,12 +71,12 @@ function createGenderChart() {
 
   const datasets = [
     {
-      label: app.data.genders[0],
+      label: app.data.genders[app.lang][0],
       backgroundColor: 'lightgreen',
       data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     },
     {
-      label: app.data.genders[1],
+      label: app.data.genders[app.lang][1],
       backgroundColor: 'green',
       data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     },
@@ -104,7 +105,7 @@ function createTypeChart() {
   const canvas = document.getElementsByClassName('type-chart-canvas')[0];
 
   const datasets = [];
-  app.data.types.forEach((type, i) => {
+  app.data.types[app.lang].forEach((type, i) => {
     datasets[i] = {
       borderColor: 'green',
       label: type,
@@ -138,12 +139,12 @@ function createLevelChart() {
 
   const datasets = [
     {
-      label: app.data.levels[0],
+      label: app.data.levels[app.lang][0],
       backgroundColor: 'green',
       data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     },
     {
-      label: app.data.levels[1],
+      label: app.data.levels[app.lang][1],
       backgroundColor: 'lightgreen',
       data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     },
@@ -186,8 +187,11 @@ document.addEventListener('DOMContentLoaded', async () => {
   // Get JSON from API and add it to global app data
   app.data = await getJSONfromAPI();
 
+  // Set page language
+  app.lang = document.documentElement.getAttribute('lang');
+
   // Fill country select box with list of all countries
-  app.data.countries.forEach((country, i) => {
+  app.data.countries[app.lang].forEach((country, i) => {
     const option = document.createElement('option');
     option.value = i;
     option.textContent = country;

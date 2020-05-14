@@ -13,10 +13,10 @@
   </div>
   <nav>
     <div class="nav">
-      <a class="nav__item <?php if ($currentPage == "yearly-report") echo "nav__item--selected"; ?>" href="<?php echo "/" . LANG . "/yearly-report"; ?>">
+      <a class="nav__item <?php if (CURRENT_PAGE == "yearly-report") echo "nav__item--selected"; ?>" href="<?php echo "/" . LANG . "/yearly-report"; ?>">
         <p class="nav__item__text">Jahresreport</p>
       </a>
-      <a class="nav__item <?php if ($currentPage == "year-overview") echo "nav__item--selected"; ?>" href="<?php echo "/" . LANG . "/year-overview"; ?>">
+      <a class="nav__item <?php if (CURRENT_PAGE == "year-overview") echo "nav__item--selected"; ?>" href="<?php echo "/" . LANG . "/year-overview"; ?>">
         <p class="nav__item__text">Jahresübersicht</p>
       </a>
     </div>

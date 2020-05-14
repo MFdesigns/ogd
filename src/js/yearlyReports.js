@@ -10,6 +10,7 @@ import Chart from '../js/Chart.esm.js';
 const app = {
   data: {}, // JSON data from the API
   charts: [], // Reference to all charts
+  lang: 'de',
 };
 
 // Year selection dropdown
@@ -37,15 +38,13 @@ function getGenderCount(year) {
 
   // Loop trough each student and increment male/female counter
   students.forEach((student) => {
-    // Students only contains an index to string in gender array
-    const gender = app.data.genders[student.gender];
-    switch (gender) {
-      case 'männlich':
-        maleCount += student.size;
+    switch (student.gender) {
+      case 0: // female
+        femaleCount += student.size;
         break;
 
-      case 'weiblich':
-        femaleCount += student.size;
+      case 1: // male
+        maleCount += student.size;
         break;
 
       default:
@@ -69,13 +68,12 @@ function getLevelCount(year) {
   let levelTwoCount = 0;
 
   students.forEach((student) => {
-    const level = app.data.levels[student.level];
-    switch (level) {
-      case 'Sekundarstufe I':
+    switch (student.level) {
+      case 0:
         levelOneCount += student.size;
         break;
 
-      case 'Sekundarstufe II':
+      case 1:
         levelTwoCount += student.size;
         break;
 
@@ -103,25 +101,24 @@ function getTypeCount(year) {
   let typePASCount = 0;
 
   students.forEach((student) => {
-    const type = app.data.types[student.type];
-    switch (type) {
-      case 'Fachmittelschulen':
+    switch (student.type) {
+      case 0:
         typeFMSCount += student.size;
         break;
 
-      case 'Gymnasium':
+      case 1:
         typeGYMCount += student.size;
         break;
 
-      case 'Handelsmittelschulen':
+      case 2:
         typeHMSCount += student.size;
         break;
 
-      case 'Informatikmittelschulen':
+      case 3:
         typeIMSCount += student.size;
         break;
 
-      case 'Passerelle':
+      case 4:
         typePASCount += student.size;
         break;
 
@@ -148,7 +145,7 @@ function getCountryCount(year) {
   const countries = {};
 
   students.forEach((student) => {
-    const countryName = app.data.countries[student.country];
+    const countryName = app.data.countries[app.lang][student.country];
 
     if (countries.hasOwnProperty(countryName)) {
       countries[countryName] += student.size;
@@ -173,15 +170,15 @@ function createGenderChart(year) {
     type: 'pie',
     data: {
       datasets: [{
-        data: [genderCount.male, genderCount.female],
+        data: [genderCount.female, genderCount.male],
         backgroundColor: [
-          'blue',
           'pink',
+          'blue',
         ],
       }],
       labels: [
-        'Männlich',
-        'Weiblich',
+        app.data.genders[app.lang][0],
+        app.data.genders[app.lang][1],
       ],
     },
     options: {
@@ -210,10 +207,7 @@ function createLevelChart(year) {
           'lightgreen',
         ],
       }],
-      labels: [
-        'Sekundarstufe I',
-        'Sekundarstufe II',
-      ],
+      labels: app.data.levels[app.lang],
     },
     options: {
       maintainAspectRatio: false,
@@ -244,13 +238,7 @@ function createTypeChart(year) {
           'lightblue',
         ],
       }],
-      labels: [
-        'Fachmittelschule',
-        'Gymnasium',
-        'Handelsmittelschule',
-        'Informatikmittelschule',
-        'Pasarelle',
-      ],
+      labels: app.data.types[app.lang],
     },
     options: {
       maintainAspectRatio: false,
@@ -378,6 +366,9 @@ function updateCountryChart(year) {
 document.addEventListener('DOMContentLoaded', async () => {
   // Get JSON from API and add it to global app data
   app.data = await getJSONfromAPI();
+
+  // Set page language
+  app.lang = document.documentElement.getAttribute('lang');
 
   // Check if URL contains valid year
   const hashYear = window.location.hash.replace('#', '');
