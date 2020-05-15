@@ -4,7 +4,7 @@
   Copyright (c) 2020 Michel Fäh, Dario Romandini
 */
 
-define("DEBUG", true);
+define("DEBUG", false);
 define("ROOT", __DIR__);
 define("SRC_ROOT", ROOT . "/src");
 define("HOST_ROOT", "http://" . $_SERVER["SERVER_NAME"]);

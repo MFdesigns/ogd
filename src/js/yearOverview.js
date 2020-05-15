@@ -4,7 +4,7 @@
 
 /* eslint-disable import/extensions */
 /* eslint-disable import/no-useless-path-segments */
-import Chart from '../js/Chart.esm.js';
+import Chart from '../js/Chart.esm.min.js';
 import getJSONfromAPI from '../js/api.js';
 
 const countrySelect = document.getElementById('country-select');
