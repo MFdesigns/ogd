@@ -39,7 +39,7 @@
 			},
 			"type": {
 				"title": "Type",
-				"description": "Présente les types de collège au fil des ans."
+				"description": "Présente les types d'école au fil des ans."
 			},
 			"level": {
 				"title": "Niveau",
@@ -55,7 +55,7 @@
 		"charts": {
 			"country": {
 				"title": "Country",
-				"description": "Zeigt je nach selektiertem Land die Jahresübersicht."
+				"description": "Shows the annual overview depending on the selected country."
 			},
 			"gender": {
 				"title": "Gender",
@@ -63,7 +63,7 @@
 			},
 			"type": {
 				"title": "Type",
-				"description": "Shows the secondary school types over the years."
+				"description": "Shows the school types over the years."
 			},
 			"level": {
 				"title": "Level",

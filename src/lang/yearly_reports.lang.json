@@ -37,7 +37,7 @@
       },
       "type": {
         "title": "Type",
-        "description": "Indique le nombre d'élèves selon le type d'école secondaire de l'année actuelle."
+        "description": "Indique le nombre d'élèves selon le type d'école  de l'année actuelle."
       },
       "level": {
         "title": "Niveau",
@@ -62,7 +62,7 @@
       },
       "type": {
         "title": "Type",
-        "description": "Shows the number of pupils according to the type of secondary school of the current year."
+        "description": "Shows the number of students according to the type of school of the current year."
       },
       "level": {
         "title": "Level",
@@ -87,7 +87,7 @@
       },
       "type": {
         "title": "Tipo",
-        "description": "Visualizza il numero di alunni in base al tipo di scuola secondaria dell'anno in corso."
+        "description": "Visualizza il numero di alunni in base al tipo di scuola dell'anno in corso."
       },
       "level": {
         "title": "Livello",

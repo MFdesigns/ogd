@@ -365,16 +365,16 @@
 			"Sekundarstufe II"
 		],
 		"en": [
-			"Secondary education I",
-			"Secondary education II"
+			"Secondary level I",
+			"Secondary level II"
 		],
 		"fr": [
-			"Éducation secondaire I",
-			"Éducation secondaire II"
+			"École secondaire I",
+			"École secondaire II"
 		],
 		"it": [
-			"Educazione secondaria I",
-			"Educazione secondaria II"
+			"Livello secondario I",
+			"Livello secondario II"
 		]
 	},
 	"types": {
@@ -386,24 +386,24 @@
 			"Passerelle"
 		],
 		"en": [
-			"Specialized secondary school",
+			"\"Fachmittelschule\"",
 			"Grammar school",
-			"Commercial college",
-			"College of Computer Science",
-			"Passerelle"
+			"Business college",
+			"IT college",
+			"\"Passerelle\""
 		],
 		"fr": [
-			"École de culture générale et de commerce",
+			"École de culture générale",
 			"Gymnase",
-			"École de commerce",
-			"École secondaire d'informatique",
+			"École supérieure de commerce",
+			"École supérieure d'informatique",
 			"Passerelle"
 		],
 		"it": [
-			"Scuola media superiore tecnica",
-			"Scuola di liceo",
-			"Collegio commerciale",
-			"Scuole secondarie di informatica",
+			"Scuola specializzata",
+			"Liceo",
+			"Scuola media di commercio",
+			"Scuola professionale (informatica)",
 			"Passerella"
 		]
 	},
