@@ -15,17 +15,33 @@ class Router {
     $urlSegments = explode("/", $this->url);
     array_shift($urlSegments);
 
-    // Get language route
-    $lang = $urlSegments[0];
+    // Get top directory
+    $dir = $urlSegments[0];
 
-    if (count($urlSegments) >= 1) {
-      switch($lang) {
-        case "api":
-          require_once(SRC_ROOT . "/api.php");
-          die();
-        break;
+    // Get language file containing all header and footer texts from selected language
+    $generalLangFile = file_get_contents(SRC_ROOT . "/lang/general.lang.json");
+    $generalLangData = json_decode($generalLangFile, true);
 
-        case "":
+    // Define general language file
+    define("LANG_GEN", $generalLangData);
+
+    // API Route
+    if ($dir == "api" && count($urlSegments) == 1) {
+      require_once(SRC_ROOT . "/api.php");
+      die();
+
+    // Default landing page / home route with no language selected
+    } else if (empty($dir) && count($urlSegments) == 1) {
+      // Default home / landing page
+      // Set default lang to german
+      define("LANG", "de");
+      define("CURRENT_PAGE", "");
+      define("LANG_FILE", "landing.lang.json");
+      require_once(SRC_ROOT . "/views/home.php");
+
+    // Subpage with language parameter
+    } else {
+      switch($dir) {
         case "de":
           define("LANG", "de");
         break;
@@ -48,41 +64,40 @@ class Router {
         break;
       }
 
-      // Get language file containing all texts from selected language
-      $generalLangFile = file_get_contents(SRC_ROOT . "/lang/general.lang.json");
-      $generalLangData = json_decode($generalLangFile, true);
-
-      define("LANG_GEN", $generalLangData);
-
-      if (isset($urlSegments[1])) {
+      // Subpage overview or report
+      if (isset($urlSegments[1]) && count($urlSegments) == 2) {
         switch ($urlSegments[1]) {
-        case "yearly-report":
-          define("CURRENT_PAGE", "yearly-report");
-          define("LANG_FILE", "yearly_reports.lang.json");
-          require_once(SRC_ROOT . "/views/yearly_report.php");
-        break;
+          case "yearly-report":
+            define("CURRENT_PAGE", "yearly-report");
+            define("LANG_FILE", "yearly_reports.lang.json");
+            require_once(SRC_ROOT . "/views/yearly_report.php");
+          break;
 
-        case "year-overview":
-          define("CURRENT_PAGE", "year-overview");
-          define("LANG_FILE", "year_overview.lang.json");
-          require_once(SRC_ROOT . "/views/year_overview.php");
-        break;
+          case "year-overview":
+            define("CURRENT_PAGE", "year-overview");
+            define("LANG_FILE", "year_overview.lang.json");
+            require_once(SRC_ROOT . "/views/year_overview.php");
+          break;
 
-        default:
-        http_response_code(404);
+          default:
+            http_response_code(404);
+            die();
+          break;
+        }
+
+      // Home / landing page with language parameter
+      } else if (count($urlSegments) == 1) {
+        define("CURRENT_PAGE", "");
+        define("LANG_FILE", "landing.lang.json");
+        require_once(SRC_ROOT . "/views/home.php");
+
+      } else {
+         http_response_code(404);
         die();
-      break;
-    }
-  } else {
-      define("CURRENT_PAGE", "");
-      define("LANG_FILE", "landing.lang.json");
-      require_once(SRC_ROOT . "/views/home.php");
       }
-    } else {
-      http_response_code(404);
-      die();
     }
   }
+
 }
 
 ?>

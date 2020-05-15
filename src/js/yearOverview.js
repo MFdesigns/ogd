@@ -5,6 +5,7 @@
 /* eslint-disable import/extensions */
 /* eslint-disable import/no-useless-path-segments */
 import Chart from '../js/Chart.esm.js';
+import getJSONfromAPI from '../js/api.js';
 
 const countrySelect = document.getElementById('country-select');
 
@@ -16,14 +17,9 @@ const app = {
 };
 
 /**
- * Gets JSON data from API
+ * Returns the country sizes throughout the current year from selected country
+ * @param {number} countryIndex
  */
-async function getJSONfromAPI() {
-  const request = await fetch('/api', { method: 'GET' });
-  const json = await request.json();
-  return json;
-}
-
 function getCountrySizes(countryIndex) {
   const years = Object.keys(app.data.years);
   const countrySizes = [];
@@ -45,6 +41,10 @@ function getCountrySizes(countryIndex) {
   };
 }
 
+/**
+ * Creates a country chart
+ * @param {number} countryIndex
+ */
 function createCountryChart(countryIndex) {
   const data = getCountrySizes(countryIndex);
   const canvas = document.getElementsByClassName('country-chart-canvas')[0];
@@ -70,6 +70,9 @@ function createCountryChart(countryIndex) {
   return chart;
 }
 
+/**
+ * Creates gender chart
+ */
 function createGenderChart() {
   const canvas = document.getElementsByClassName('gender-chart-canvas')[0];
 
@@ -107,7 +110,9 @@ function createGenderChart() {
   });
 }
 
-
+/**
+ * Creates type chart
+ */
 function createTypeChart() {
   const canvas = document.getElementsByClassName('type-chart-canvas')[0];
 
@@ -147,6 +152,9 @@ function createTypeChart() {
   });
 }
 
+/**
+ * Creates level chart
+ */
 function createLevelChart() {
   const canvas = document.getElementsByClassName('level-chart-canvas')[0];
 
@@ -184,6 +192,10 @@ function createLevelChart() {
   });
 }
 
+/**
+ * Updates country chart
+ * @param {number} countryIndex
+ */
 function updateCountryChart(countryIndex) {
   const data = getCountrySizes(countryIndex);
   app.charts.country.data.datasets.length = 0;
@@ -194,10 +206,14 @@ function updateCountryChart(countryIndex) {
   app.charts.country.update();
 }
 
+// Update country chart on country selection change
 countrySelect.addEventListener('change', (event) => {
   updateCountryChart(event.target.value);
 });
 
+/**
+ * Fills country selection dropdown on page load
+ */
 function fillCountrySelect() {
   // Create copy of countries array
   const countries = [...app.data.countries[app.lang]];

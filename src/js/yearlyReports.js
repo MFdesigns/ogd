@@ -5,6 +5,7 @@
 /* eslint-disable import/extensions */
 /* eslint-disable import/no-useless-path-segments */
 import Chart from '../js/Chart.esm.js';
+import getJSONfromAPI from '../js/api.js';
 
 // Global app state
 const app = {
@@ -15,16 +16,6 @@ const app = {
 
 // Year selection dropdown
 const yearSelect = document.getElementById('year-select');
-
-/**
- * Gets JSON data from API
- */
-async function getJSONfromAPI() {
-  const apiURL = `http://${window.location.host}/api`;
-  const request = await fetch(apiURL, { method: 'GET' });
-  const json = await request.json();
-  return json;
-}
 
 /**
  * Gets the amount of male/female students in given year
@@ -398,7 +389,6 @@ document.addEventListener('DOMContentLoaded', async () => {
   app.charts.type = createTypeChart(year);
   app.charts.country = createCountryChart(year);
 });
-
 
 // Update all charts on year selection change
 yearSelect.addEventListener('change', (event) => {

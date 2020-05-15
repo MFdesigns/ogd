@@ -17,14 +17,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="author" content="Michel Fäh, Dario Romandini">
   <meta name="description" content="<?php echo $langData[LANG]["page"]["description"]; ?>">
-  <title>Lernende Mittelschulen TG | <?php echo $langData[LANG]["page"]["title"]; ?></title>
+  <title><?php echo LANG_GEN["header"][LANG]["title"] ?> | <?php echo $langData[LANG]["page"]["title"]; ?></title>
 
   <!-- Favicons -->
   <link rel="apple-touch-icon" sizes="180x180" href="/src/res/favicons/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/src/res/favicons/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/src/res/favicons/favicon-16x16.png">
   <link rel="manifest" href="/src/res/favicons/site.webmanifest">
-  <link rel="mask-icon" href="/src/res/favicons/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="mask-icon" href="/src/res/favicons/safari-pinned-tab.svg" color="#16a74e">
   <link rel="shortcut icon" href="/src/res/favicons/favicon.ico">
   <meta name="msapplication-TileColor" content="#da532c">
   <meta name="msapplication-config" content="/src/res/favicons/browserconfig.xml">
@@ -45,11 +45,14 @@
 
   <main>
 
+    <!-- Banner explaing the site -->
     <div class="banner">
       <div class="banner__header">
         <h1><?php echo $langData[LANG]["page"]["title"]; ?></h1>
         <p><?php echo $langData[LANG]["page"]["description"]; ?></p>
       </div>
+
+      <!-- Year selection -->
       <div class="banner__selection">
         <label for="year-select">
           <?php echo $langData[LANG]["yearSelection"]; ?>
@@ -66,11 +69,12 @@
           <option value="2015/2016">2015/2016</option>
           <option value="2016/2017">2016/2017</option>
           <option value="2017/2018">2017/2018</option>
-          <option value="2018/2019">2018/2019</option>
+          <option value="2018/2019" selected>2018/2019</option>
         </select>
       </div>
     </div>
 
+    <!-- Gender chart -->
     <div class="chart gender-chart">
       <div class="chart__header">
         <h2 class="chart__header__title">
@@ -85,6 +89,7 @@
       </div>
     </div>
 
+    <!-- Level chart -->
     <div class="chart level-chart">
       <div class="chart__header">
         <h2 class="chart__header__title">
@@ -99,6 +104,7 @@
       </div>
     </div>
 
+    <!-- Type chart -->
     <div class="chart type-chart">
       <div class="chart__header">
         <h2 class="chart__header__title">
@@ -113,6 +119,7 @@
       </div>
     </div>
 
+    <!-- Country chart -->
     <div class="chart country-chart">
       <div class="chart__header">
         <h2  class="chart__header__title">

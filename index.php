@@ -15,6 +15,7 @@ if (!DEBUG) {
   error_reporting(0);
 }
 
+// Create new router which will display correct view for given path
 $url = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
 $router = new Router($url);
 $router->route();

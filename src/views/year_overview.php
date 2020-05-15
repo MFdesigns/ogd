@@ -17,14 +17,14 @@ $langData = json_decode($langFile, true);
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="author" content="Michel Fäh, Dario Romandini">
   <meta name="description" content="<?php echo $langData[LANG]["page"]["description"]; ?>">
-  <title>Lernende Mittelschulen TG | <?php echo $langData[LANG]["page"]["title"]; ?></title>
+  <title><?php echo LANG_GEN["header"][LANG]["title"] ?> | <?php echo $langData[LANG]["page"]["title"]; ?></title>
 
   <!-- Favicons -->
   <link rel="apple-touch-icon" sizes="180x180" href="/src/res/favicons/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/src/res/favicons/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/src/res/favicons/favicon-16x16.png">
   <link rel="manifest" href="/src/res/favicons/site.webmanifest">
-  <link rel="mask-icon" href="/src/res/favicons/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="mask-icon" href="/src/res/favicons/safari-pinned-tab.svg" color="#16a74e">
   <link rel="shortcut icon" href="/src/res/favicons/favicon.ico">
   <meta name="msapplication-TileColor" content="#da532c">
   <meta name="msapplication-config" content="/src/res/favicons/browserconfig.xml">
@@ -46,6 +46,7 @@ $langData = json_decode($langFile, true);
 
   <main>
 
+    <!-- Explanation of the site -->
     <div class="banner">
       <div class="banner__header">
         <h1><?php echo $langData[LANG]["page"]["title"]; ?></h1>
@@ -53,6 +54,7 @@ $langData = json_decode($langFile, true);
       </div>
     </div>
 
+    <!-- Gender chart -->
     <div class="chart gender-chart">
       <div class="chart__header">
         <h2 class="chart__header__title">
@@ -67,10 +69,13 @@ $langData = json_decode($langFile, true);
       </div>
     </div>
 
+    <!-- Country chart -->
     <div class="chart country-chart">
       <div class="chart__header">
         <h2 class="chart__header__title">
           <?php echo $langData[LANG]["charts"]["country"]["title"]; ?>
+
+          <!-- Country selection -->
           <select class="select" id="country-select" disabled></select>
         </h2>
         <p>
@@ -82,6 +87,7 @@ $langData = json_decode($langFile, true);
       </div>
     </div>
 
+    <!-- Type chart -->
     <div class="chart type-chart">
       <div class="chart__header">
         <h2 class="chart__header__title">
@@ -96,6 +102,7 @@ $langData = json_decode($langFile, true);
       </div>
     </div>
 
+    <!-- Level chart -->
     <div class="chart level-chart">
       <div class="chart__header">
         <h2 class="chart__header__title">
