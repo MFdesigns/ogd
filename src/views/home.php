@@ -2,6 +2,14 @@
   Copyright (c) 2020 Michel Fäh, Dario Romandini
   -->
 
+  <?php
+
+// Get language file containing all texts from selected language
+$langFile = file_get_contents(SRC_ROOT . "/lang/" . LANG_FILE);
+$langData = json_decode($langFile, true);
+
+?>
+
 <!DOCTYPE html>
 <html lang="<?php echo LANG; ?>">
 <head>
@@ -10,7 +18,7 @@
   <meta name="author" content="Michel Fäh, Dario Romandini">
   <!-- TODO: Add description meta data -->
   <meta name="description" content="">
-  <title>Lernende Mittelschulen TG | <?php echo $langData[LANG]["page"]["title"]; ?></title>
+  <title>Lernende Mittelschulen TG | Home</title>
 
   <!-- Favicons -->
   <link rel="apple-touch-icon" sizes="180x180" href="/src/res/favicons/apple-touch-icon.png">
@@ -28,7 +36,7 @@
   <link rel="stylesheet" href="/src/css/home_style.css">
 
   <!-- Scripts -->
-  <script src="/src/js/footer.js" defer></script>
+  <script src="/src/js/general.js" defer></script>
 
 </head>
 <body>
@@ -38,22 +46,22 @@
 
   <main>
     <div class="landing">
-      <h1 class="landing__title">Lernende der Mittelschulen</br> des Kantons Thurgau</h1>
-      <p>Diese Website wurde im Rahmen der OGD Projektwoche der Informatikmittelschule erstellt.</p>
+      <h1 class="landing__title"><?php echo $langData["banner"][LANG]["title"]; ?></h1>
+      <p><?php echo $langData["banner"][LANG]["description"]; ?></p>
     </div>
 
-    <h2 class="view-header">Seitenübersicht</h2>
+    <h2 class="view-header"><?php echo $langData["page"][LANG]["title"]; ?></h2>
 
     <a class="view yearly-reports-view" href="<?php echo "/" . LANG . "/yearly-report"; ?>">
       <img src="/src/res/yearly_report_icon.svg" alt="">
-      <h3 class="view__title">Jahresraport</h3>
-      <p>Der Jahresraport zeigt interessante Statistiken zu einem selektierten Jahr an. Der Raport beeinhaltet die Kategorien: Geschlecht, Land, Stufe und Typ der Mittelschüler des Kanton Thurgau.</p>
+      <h3 class="view__title"><?php echo $langData["page"][LANG]["report"]["title"]; ?></h3>
+      <p><?php echo $langData["page"][LANG]["report"]["description"]; ?></p>
     </a>
 
     <a class="view year-overview-view" href="<?php echo "/" . LANG . "/year-overview"; ?>">
       <img src="/src/res/year_overview_icon.svg" alt="">
-      <h3 class="view__title">Jahresübersicht</h3>
-      <p>Diese Ansicht bietet eine Übersicht der einzelnen Kategorien (Geschlecht, Land, Stufe und Typ) über die Jahre 2007 bis 2019.</p>
+      <h3 class="view__title"><?php echo $langData["page"][LANG]["overview"]["title"]; ?></h3>
+      <p><?php echo $langData["page"][LANG]["overview"]["description"]; ?></p>
     </a>
   </main>
 
