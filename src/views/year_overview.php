@@ -35,7 +35,7 @@ $langData = json_decode($langFile, true);
   <link rel="stylesheet" href="/src/css/year_overview_style.css">
 
   <!-- Scripts -->
-  <script src="/src/js/footer.js" defer></script>
+  <script src="/src/js/general.js" defer></script>
   <script src="/src/js/yearOverview.js" type="module" defer></script>
 
 </head>

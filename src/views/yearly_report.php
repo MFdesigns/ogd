@@ -35,7 +35,7 @@
   <link rel="stylesheet" href="/src/css/yearly_report_style.css">
 
   <!-- Scripts -->
-  <script src="/src/js/footer.js" defer></script>
+  <script src="/src/js/general.js" defer></script>
   <script src="/src/js/yearlyReports.js" type="module" defer></script>
 </head>
 <body>
