@@ -19,6 +19,11 @@ html {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+.body-no-scroll {
+  height: 100%;
+  overflow: hidden;
+}
+
 .select {
   padding: 5px 10px 5px 10px;
   border: 2px solid black;
@@ -58,21 +63,24 @@ header {
   position: relative;
   margin-left: auto;
   margin-right: auto;
-  width: var(--page-width);
-  display: flex;
-  flex-direction: row;
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto auto 1fr;
+  grid-template-rows: auto;
   background-color: white;
 }
 
 .header__icon {
-  height: 100%;
+  height: 60px;
   width: 60px;
+  grid-column: 1 / span 1;
 }
 
 .header__title {
   margin: 0 0 0 20px;
-  align-self: center;
   font-size: 24px;
+  grid-column: 2 / span 1;
+  align-self: center;
 }
 .header__title:hover {
   text-decoration: underline;
@@ -83,17 +91,37 @@ header {
   text-decoration: none;
 }
 
+.nav-open-button {
+  height: 40px;
+  width: 40px;
+  background-color: var(--tg-green);
+  border: 2px solid black;
+  grid-column: 3 / span 1;
+  justify-self: end;
+  align-self: center;
+  margin: 0 20px 0 0;
+  display: block;
+}
+.nav-open-button:hover {
+  cursor: pointer;
+}
+
+.nav-open-button__icon {
+  width: 20px;
+}
+
 /*
   Navbar
 */
 
-nav {
+.desktop-nav {
+  display: none;
   background-color: var(--tg-grey);
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 .nav {
-  width: var(--page-width);
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
   display: flex;
@@ -144,6 +172,63 @@ nav {
 }
 
 /*
+  Mobile Nav
+*/
+
+.mobile-nav-container {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.mobile-nav {
+  background-color: var(--tg-green);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 400px;
+  height: 100%;
+  z-index: 1;
+  padding: 60px 20px 20px 20px;
+}
+
+.mobile-nav__list {
+  list-style: none;
+}
+
+.mobile-nav__item {
+  display: block;
+  color: white;
+  padding: 10px 20px 10px 20px;
+  font-weight: bold;
+}
+.mobile-nav__item:hover {
+  color: black;
+  background-color: white;
+}
+
+.nav-close-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  height: 40px;
+  width: 40px;
+  background-color: var(--tg-green);
+  border: 2px solid black;
+}
+.nav-close-button:hover {
+  cursor: pointer;
+}
+
+.nav-close-button__icon {
+  width: 20px;
+}
+
+/*
   Set z-index to p element inside anchor to
   put on top of ::before and ::after pseudo element
   TLDR: CSS is stupid
@@ -158,12 +243,12 @@ nav {
 */
 
 main {
-  margin: 150px 0 0 0;
+  margin: 62px 0 0 0;
 }
 
 .banner {
   grid-area: banner;
-  margin: 0 0 20px 0;
+  margin: 40px 0 20px 0;
 }
 
 .banner__header {
@@ -259,6 +344,26 @@ footer {
 }
 
 @media (min-width: 1000px) {
+  .header {
+    width: var(--page-width);
+  }
+
+  .nav {
+    width: var(--page-width);
+  }
+
+  .nav-open-button {
+    display: none;
+  }
+
+  .desktop-nav {
+    display: block;
+  }
+
+  main {
+    margin: 107px 0 0 0;
+  }
+
   footer {
     display: grid;
     grid-template-columns: 1fr var(--page-width) 1fr;

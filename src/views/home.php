@@ -28,7 +28,7 @@
   <link rel="stylesheet" href="/src/css/home_style.css">
 
   <!-- Scripts -->
-  <script src="/src/js/footer.js" defer></script>
+  <script src="/src/js/general.js" defer></script>
 
 </head>
 <body>
