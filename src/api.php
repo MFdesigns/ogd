@@ -6,7 +6,7 @@
 
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
   // TODO: Fix relative path
-  $json = file_get_contents(ROOT . '/../data/dataset.json');
+  $json = file_get_contents(ROOT . '/data/dataset.json');
   header('Content-Type: application/json; charset=UTF-8');
   echo $json;
 } else {
