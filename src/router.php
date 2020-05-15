@@ -71,11 +71,12 @@ class Router {
         default:
         http_response_code(404);
         die();
-        break;
-      }
-    } else {
-        define("CURRENT_PAGE", "");
-        require_once(SRC_ROOT . "/views/home.php");
+      break;
+    }
+  } else {
+      define("CURRENT_PAGE", "");
+      define("LANG_FILE", "landing.lang.json");
+      require_once(SRC_ROOT . "/views/home.php");
       }
     } else {
       http_response_code(404);
