@@ -21,7 +21,7 @@ class Router {
     if (count($urlSegments) >= 1) {
       switch($lang) {
         case "api":
-          require_once(ROOT . "/api.php");
+          require_once(SRC_ROOT . "/api.php");
           die();
         break;
 
@@ -49,7 +49,7 @@ class Router {
       }
 
       // Get language file containing all texts from selected language
-      $generalLangFile = file_get_contents(ROOT . "/lang/general.lang.json");
+      $generalLangFile = file_get_contents(SRC_ROOT . "/lang/general.lang.json");
       $generalLangData = json_decode($generalLangFile, true);
 
       define("LANG_GEN", $generalLangData);
@@ -59,13 +59,13 @@ class Router {
         case "yearly-report":
           define("CURRENT_PAGE", "yearly-report");
           define("LANG_FILE", "yearly_reports.lang.json");
-          require_once(ROOT . "/views/yearly_report.php");
+          require_once(SRC_ROOT . "/views/yearly_report.php");
         break;
 
         case "year-overview":
           define("CURRENT_PAGE", "year-overview");
           define("LANG_FILE", "year_overview.lang.json");
-          require_once(ROOT . "/views/year_overview.php");
+          require_once(SRC_ROOT . "/views/year_overview.php");
         break;
 
         default:
@@ -75,7 +75,7 @@ class Router {
       }
     } else {
         define("CURRENT_PAGE", "");
-        require_once(ROOT . "/views/home.php");
+        require_once(SRC_ROOT . "/views/home.php");
       }
     } else {
       http_response_code(404);

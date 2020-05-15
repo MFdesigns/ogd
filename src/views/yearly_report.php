@@ -5,7 +5,7 @@
 <?php
 
   // Get language file containing all texts from selected language
-  $langFile = file_get_contents(ROOT . "/lang/" . LANG_FILE);
+  $langFile = file_get_contents(SRC_ROOT . "/lang/" . LANG_FILE);
   $langData = json_decode($langFile, true);
 
 ?>
@@ -20,28 +20,28 @@
   <title>Lernende Mittelschulen TG | <?php echo $langData[LANG]["page"]["title"]; ?></title>
 
   <!-- Favicons -->
-  <link rel="apple-touch-icon" sizes="180x180" href="/res/favicons/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/res/favicons/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/res/favicons/favicon-16x16.png">
-  <link rel="manifest" href="/res/favicons/site.webmanifest">
-  <link rel="mask-icon" href="/res/favicons/safari-pinned-tab.svg" color="#5bbad5">
-  <link rel="shortcut icon" href="/res/favicons/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/src/res/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/src/res/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/src/res/favicons/favicon-16x16.png">
+  <link rel="manifest" href="/src/res/favicons/site.webmanifest">
+  <link rel="mask-icon" href="/src/res/favicons/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="shortcut icon" href="/src/res/favicons/favicon.ico">
   <meta name="msapplication-TileColor" content="#da532c">
-  <meta name="msapplication-config" content="/res/favicons/browserconfig.xml">
+  <meta name="msapplication-config" content="/src/res/favicons/browserconfig.xml">
   <meta name="theme-color" content="#ffffff">
 
   <!-- Styles -->
-  <link rel="stylesheet" href="/css/general_styles.css">
-  <link rel="stylesheet" href="/css/yearly_report_style.css">
+  <link rel="stylesheet" href="/src/css/general_styles.css">
+  <link rel="stylesheet" href="/src/css/yearly_report_style.css">
 
   <!-- Scripts -->
-  <script src="/js/footer.js" defer></script>
-  <script src="/js/yearlyReports.js" type="module" defer></script>
+  <script src="/src/js/footer.js" defer></script>
+  <script src="/src/js/yearlyReports.js" type="module" defer></script>
 </head>
 <body>
 
   <!-- Header -->
-  <?php require_once(ROOT . "/views/header_component.php"); ?>
+  <?php require_once(SRC_ROOT . "/views/header_component.php"); ?>
 
   <main>
 
@@ -130,7 +130,7 @@
   </main>
 
   <!-- Footer -->
-  <?php require_once(ROOT . "/views/footer_component.php"); ?>
+  <?php require_once(SRC_ROOT . "/views/footer_component.php"); ?>
 
 </body>
 </html>

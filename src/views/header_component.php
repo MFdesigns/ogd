@@ -7,7 +7,7 @@
 <header>
   <div class="title">
     <div class="header">
-      <img class="header__icon" src="/res/header_icon.svg" alt="">
+      <img class="header__icon" src="/src/res/header_icon.svg" alt="">
       <h1 class="header__title"><a href="<?php echo "/" . LANG; ?>"><?php echo LANG_GEN["header"][LANG]["title"] ?></a></h1>
     </div>
   </div>
