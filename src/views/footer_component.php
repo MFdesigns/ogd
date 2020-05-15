@@ -46,5 +46,5 @@ if (empty(CURRENT_PAGE)) {
   </div>
 
   <!-- Copyright -->
-  <p class="footer__copyright">Copyright &copy 2020 Michel Fäh und Dario Romandini</p>
+  <p class="footer__copyright">Copyright &copy 2020 Michel Fäh & Dario Romandini</p>
 </footer>
