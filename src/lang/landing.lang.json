@@ -1,0 +1,66 @@
+{
+	"banner": {
+		"de": {
+			"title": "Lernende der Mittelschulen des Kantons Thurgau",
+			"description": "Diese Website wurde im Rahmen der OGD Projektwoche der Informatikmittelschule erstellt."
+		},
+		"en": {
+			"title": "Students at middle schools in the canton of Thurgovia",
+			"description": "This website was created as part of the OGD project week at the IT college."
+		},
+		"fr": {
+			"title": "Les élèves des écoles du canton de Thurgovie",
+			"description": "Ce site web a été créé dans le cadre de la semaine des projets d'AMG à l'école supérieure d'informatique."
+		},
+		"it": {
+			"title": "Studenti delle scuole di secondo grado del Canton Turgovia",
+			"description": "Questo sito web è stato creato nel contesto della settimana del progetto OGD presso la scuola professionale (informatica)."
+		}
+	},
+	"page": {
+		"de": {
+			"title": "Seitenübersicht",
+			"report": {
+				"title": "Jahresraport",
+				"description": "Der Jahresraport zeigt interessante Statistiken zu einem selektierten Jahr an. Der Raport beeinhaltet die Kategorien: Geschlecht, Land, Stufe und Typ der Mittelschüler des Kanton Thurgau."
+			},
+			"overview": {
+				"title": "Jahresübersicht",
+				"description": "Diese Ansicht bietet eine Übersicht der einzelnen Kategorien (Geschlecht, Land, Stufe und Typ) über die Jahre 2007 bis 2019."
+			}
+		},
+		"en": {
+			"title": "Site overview",
+			"report": {
+				"title": "Annual Report",
+				"description": "The annual report shows interesting statistics for a selected year. The report contains the categories: gender, country, level and type of middle school students in the canton of Thurgovia."
+			},
+			"overview": {
+				"title": "Annual overview",
+				"description": "This view provides an overview of the individual categories (gender, country, level and type) for the years 2007 to 2019."
+			}
+		},
+		"fr": {
+			"title": "Plan du site",
+			"report": {
+				"title": "Rapport annuel",
+				"description": "Le rapport annuel présente des statistiques intéressantes pour une année donnée. Le rapport contient les catégories : le sexe, le pays, le niveau et le type d'élèves de l'enseignement dans le canton de Thurgovie."
+			},
+			"overview": {
+				"title": "Annual overview",
+				"description": "Cette vue donne un aperçu des différentes catégories (sexe, pays, niveau et type) pour les années 2007 à 2019."
+			}
+		},
+		"it": {
+			"title": "Mappa del sito",
+			"report": {
+				"title": "Rapporto annuale",
+				"description": "Il rapporto annuale mostra statistiche interessanti per un anno selezionato. Il rapporto contiene le categorie: sesso, paese, livello e tipo di studenti delle scuole nel cantone di Turgovia."
+			},
+			"overview": {
+				"title": "Panoramica annuale",
+				"description": "Questa vista fornisce una panoramica delle singole categorie (genere, paese, livello e tipo) per gli anni dal 2007 al 2019."
+			}
+		}
+	}
+}
